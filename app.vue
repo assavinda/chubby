@@ -72,7 +72,7 @@ useHead({
 //--SCENES MANAGEMENT--
 
 //current scene (state)
-const currentScene = ref('14');
+const currentScene = ref('12');
 
 //set scene function
 function setScene(sceneName) {
