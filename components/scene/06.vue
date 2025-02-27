@@ -35,7 +35,7 @@
                     <div class="absolute top-[47%] right-[8%] w-[35%] text-bubble-r grand-dialogue" :class="scrollPercent >= 30 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['06-textG05.png']">
                     </div>
-                    <div class="absolute top-[32%] left-[0%] w-[47%] text-bubble grand-dialogue" :class="scrollPercent >= 48 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[32%] left-[0%] w-[47%] text-bubble grand-dialogue" :class="scrollPercent >= 36 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['06-textG06.png']">
                     </div>
                     <div class="absolute top-[50%] left-[1%] w-[47%] text-bubble-r grand-dialogue" :class="scrollPercent >= 60 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">

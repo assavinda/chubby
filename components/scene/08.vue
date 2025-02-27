@@ -1,7 +1,7 @@
 <template>
     <ElementContainer>
         <!-- office bg -->
-        <section class="absolute top-0 left-0 z-[10]">
+        <section class="absolute top-0 left-0 z-[10] fade-scr-in">
             <div>
                 <img :src="images['08-office1.png']"> 
             </div>
@@ -111,7 +111,7 @@ function handleWheel(event) {
     //speed for trackpad
     const trackpadMultiplier = 0.5
     //speed for wheel
-    const wheelMultiplier = 1
+    const wheelMultiplier = 4
 
     const scrollMultiplier = isTrackpad ? trackpadMultiplier : wheelMultiplier
     const maxScrollSpeed = (scrollMultiplier / 100) * scrollHeight
@@ -135,6 +135,12 @@ watch(scrollPercent, (newVal) => {
     else if (newVal == 26 || newVal == 54) {
         isScrollLock.value = true
         isPeopleGo.value = true
+    }
+    else if (newVal >= 100) {
+        isScrollEnd.value = true
+        setTimeout(() => {
+            emit('nextpage')
+        }, 1200)
     }
 })
 

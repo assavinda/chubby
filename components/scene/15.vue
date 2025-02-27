@@ -2,7 +2,7 @@
     <ElementContainer ref="container">
 
         <!-- text section -->
-        <section class="absolute top-0 left-0 w-full h-full transition-all duration-900" :class="[scrollPercent >= 100 ? 'translate-y-[-20%]' : 'translate-y-[0%]', isStart ? 'fade-out' : '' ]">
+        <section @animationend="isStart = true" class="absolute top-0 left-0 w-full h-full transition-all duration-900" :class="[scrollPercent >= 100 ? 'translate-y-[-20%]' : 'translate-y-[0%]', isFadeToGame ? 'fade-out' : '' ]">
             <div class="flex flex-col gap-[3%] text-center justify-center items-center w-full h-full">
                 <p class="text-blue font-medium responsive-text transition-all duration-900" :class="scrollPercent >= 1 ? 'opacity-100 translate-y-[0%]' : 'opacity-0 translate-y-[500%]' ">
                     ก่อนจะออกไปข้างนอก
@@ -28,7 +28,7 @@
                 <img :src="images['15-textH06-01.png']">
             </div>
 
-            <div @click="isStart = true" class="w-[30%] h-[40%] cursor-pointer absolute top-[77%] left-[35%]" :class="isScrollEnd ? '' : 'hidden' "></div>
+            <div @click="isFadeToGame = true" class="w-[30%] h-[40%] cursor-pointer absolute top-[77%] left-[35%]" :class="isScrollEnd ? '' : 'hidden' "></div>
         </section>
 
         <!-- scrollable container -->
@@ -58,7 +58,7 @@
             </div>
 
             <div class="w-full h-full absolute top-0 left-0 backdrop-blur-xs transition-opacity duration-700" :class="isBackDropShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
-                <div class="w-full h-full absolute top-0 left-0 bg-black opacity-50 duration-700"></div>
+                <div class="w-full h-full absolute top-0 left-0 bg-black opacity-25 duration-700"></div>
             </div>
 
             <div class="w-full h-full absolute top-0 left-0 transition-opacity duration-700" :class="isSuggestShow && isBackDropShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
@@ -83,6 +83,13 @@ const isStart = ref(false)
 const isSuggestShow = ref(true)
 const isBackDropShow = ref(true)
 const isClickable = ref(false)
+const isFadeToGame = ref(false)
+let emit = defineEmits()
+
+onMounted(() => {
+    emit('togglescroll')
+})
+
 //scrolling management ---------------------------------------------------------------------------
 const scrollContainer = ref(null)
 const scrollPercent = ref(0)
@@ -114,7 +121,7 @@ function handleWheel(event) {
     //speed for trackpad
     const trackpadMultiplier = 0.75
     //speed for wheel
-    const wheelMultiplier = 6
+    const wheelMultiplier = 30
 
     const scrollMultiplier = isTrackpad ? trackpadMultiplier : wheelMultiplier
     const maxScrollSpeed = (scrollMultiplier / 100) * scrollHeight
@@ -129,6 +136,7 @@ watch(scrollPercent, (newVal) => {
     console.log(newVal)
     if (newVal == 100) {
         // isScrollLock.value = true
+        emit('togglescroll')
         isScrollEnd.value = true
     }
 })
@@ -330,5 +338,4 @@ function stopDrag() {
 .plaster-bounce {
     animation: bounce 0.9s alternate infinite ease-in-out forwards;
 }
-
 </style>

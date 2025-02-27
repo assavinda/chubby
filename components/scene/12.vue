@@ -114,6 +114,12 @@ function animatePostit() {
     
 }
 
+let emit = defineEmits()
+
+onMounted(() => {
+    emit('togglescroll')
+})
+
 </script>
 
 <style scoped>

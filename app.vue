@@ -17,7 +17,7 @@
 
     <Scene07 v-if="currentScene === '07'" @nextpage="setScene('08')" @togglescroll="toggleScrollIcon"></Scene07>
 
-    <Scene08 v-if="currentScene === '08'" @nextpage="setScene('09')" @togglescroll="toggleScrollIcon"></Scene08>
+    <Scene08 v-if="currentScene === '08'" @nextpage="setScene('12')" @togglescroll="toggleScrollIcon"></Scene08>
 
     <Scene09 v-if="currentScene === '09'" @nextpage="setScene('10')"></Scene09>
 
@@ -25,13 +25,13 @@
 
     <Scene11 v-if="currentScene === '11'" @nextpage="setScene('12')"></Scene11>
 
-    <Scene12 v-if="currentScene === '12'" @nextpage="setScene('13')"></Scene12>
+    <Scene12 v-if="currentScene === '12'" @nextpage="setScene('13')" @togglescroll="toggleScrollIcon"></Scene12>
 
     <Scene13 v-if="currentScene === '13'" @nextpage="setScene('14')"></Scene13>
 
     <Scene14 v-if="currentScene === '14'" @nextpage="setScene('15')"></Scene14>
 
-    <Scene15 v-if="currentScene === '15'" @nextpage="setScene('16')"></Scene15>
+    <Scene15 v-if="currentScene === '15'" @nextpage="setScene('16')" @togglescroll="toggleScrollIcon"></Scene15>
 
     <div class="absolute pointer-events-none z-[100] transition-opacity duration-300" :class="isShowScrollIcon ? 'opacity-100' : 'opacity-0' ">
       <section class="relative w-fit h-fit overflow-hidden">
@@ -63,16 +63,22 @@ provide("preloaded", images);
 useHead({
   link: [
     {
+      rel: "icon",
+      type: "image/png",
+      href: "./images/icon/logo.png", // เปลี่ยนเป็น path ของไฟล์ favicon ของคุณ
+    },
+    {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap",
     },
   ],
+  title: "Chubby",
 });
 
 //--SCENES MANAGEMENT--
 
 //current scene (state)
-const currentScene = ref('12');
+const currentScene = ref('00');
 
 //set scene function
 function setScene(sceneName) {
@@ -107,11 +113,11 @@ img {
 }
 
 .fade-out {
-  animation: fade 1s ease forwards;
+  animation: fade 0.7s ease forwards;
 }
 
 .fade-in {
-  animation: fade 1s reverse ease forwards;
+  animation: fade 0.7s reverse ease forwards;
 }
 
 @keyframes fade-scroll-in {
