@@ -1,0 +1,50 @@
+<template>
+    <ElementContainer>
+        <!-- bg images -->
+        <div class="absolute top-0 left-0">
+            <img :src="images['00-cover01.png']">
+        </div>
+
+        <div class="absolute top-0 left-0">
+            <img :src="images['00-cover00.png']">
+        </div>
+
+        <div class="absolute top-0 left-0">
+            <img :src="images['00-cover02.png']">
+        </div>
+
+        <!-- start btn -->
+        <ElementButton @click="isSuggestShow = true" class="w-[10%] absolute top-[87%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <img :src="images['00-btn-start.png']">
+        </ElementButton>
+
+        <!-- suggestion section -->
+        <div class="absolute top-0 left-0 backdrop-blur-sm transition-opacity duration-400" :class="isSuggestShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
+            <!-- suggestion bg -->
+            <div>
+                <img :src="images['00-suggest01.png']">
+            </div>
+
+            <!-- suggestion btn (emit here) -->
+            <ElementButton @click="isGameStart = true" class="w-[10%] absolute top-[70%] left-[50.5%] transform -translate-x-1/2 -translate-y-1/2">
+                <img :src="images['00-btn-suggest.png']">
+            </ElementButton>
+
+        </div>
+
+        <!-- fg fade out -->
+        <div @animationend="$emit('start')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGameStart ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
+
+    </ElementContainer>
+</template>
+
+<script setup>
+const images = inject("preloaded");
+const isSuggestShow = ref(false)
+const isGameStart =  ref(false)
+
+</script>
+
+<style scoped>
+
+</style>
