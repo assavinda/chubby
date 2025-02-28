@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <!-- bg box -->
         <section @animationend="isScrollLock = false" class="absolute top-0 left-0" :class="isScrollEnd ? 'fade-out' : 'fade-scr-in' ">
             <div>
@@ -54,7 +54,7 @@
         <!-- fg fade out -->
         <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

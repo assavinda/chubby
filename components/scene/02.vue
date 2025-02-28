@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <!-- bg images -->
         <div class="absolute top-0 left-0">
             <img :src="images['02-bg-room.png']">
@@ -48,7 +48,7 @@
         <!-- fg fade out -->
         <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isWadrobeClicked ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

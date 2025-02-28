@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <!-- office bg -->
         <section class="absolute top-0 left-0 z-[10] fade-scr-in">
             <div>
@@ -74,7 +74,7 @@
         <!-- fg fade in -->
         <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none z-[21]"></div>
 
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         
         <!-- over all scroll up transition -->
         <section @animationend="isGoingToNext ? $emit('nextpage') : console.log('not now')" class="absolute top-0 left-0 w-full h-full" :class="isGoingToNext ? 'fade-scr-out' : '' ">
@@ -45,7 +45,7 @@
 
         <!-- fg fade in -->
         <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none"></div>
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

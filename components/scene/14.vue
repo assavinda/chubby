@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <div class="absolute top-0 left-0">
             <img :src="images['14-m1-01.png']">
         </div>
@@ -37,9 +37,9 @@
 
         <!-- Button -->
         <div class="absolute bottom-[5.5%] right-[1%] z-[101] w-[6.3%] cursor-pointer hover:scale-[1.2]">
-            <ElementButtonRight @click="nextgame()">
+            <GeneralButtonRight @click="nextgame()">
                 <img :src="images['14-button.png']">
-            </ElementButtonRight>
+            </GeneralButtonRight>
         </div>
 
         <!-- Body -->
@@ -75,7 +75,7 @@
         <!-- fg fade in -->
         <div class="absolute top-0 left-0 w-full h-full bg-wall z-[201] fade-out pointer-events-none"></div>
 
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

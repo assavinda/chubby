@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer ref="container">
+    <GeneralContainer ref="container">
         <!-- clock bg -->
         <section @transitionend="isScrollLock = false" @animationend="isScrollEnd ? console.log('end clock') : animateClock() " class="absolute pointer-events-none top-0 left-0 transition-all duration-700" :class="[isScrollEnd ? 'fade-scr-out' : 'fade-scr-in', isGoUp ? ' translate-y-[-15%]' : '']">
             <div>
@@ -56,7 +56,7 @@
                 <img :src="images['07-ID_other.png']">
             </div>
         </section>
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

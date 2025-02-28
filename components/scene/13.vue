@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer ref="container" class="object-cover">
+    <GeneralContainer ref="container" class="object-cover">
         <div ref="scrollContainer" class="flex absolute top-0 left-0 w-[200%] overflow-x-scroll overflow-y-hidden">
             <section>
                 <div>
@@ -195,7 +195,7 @@
                 </div>
             </div>
         </div>
-    </ElementContainer>
+    </GeneralContainer>
     
 </template>
 
@@ -417,11 +417,11 @@ const stopDrag = () => {
 }
 
 .vinyl-rotate {
-    animation: vinyl-rotate infinite 3s linear;
+    animation: vinyl-rotate infinite 3.5s linear;
 }
 
 .vinyl-models-rotate {
-    animation: vinyl-rotate infinite 3s linear reverse;
+    animation: vinyl-rotate infinite 3.5s linear reverse;
     transform-origin: center;
 }
 

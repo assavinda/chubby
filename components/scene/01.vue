@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <!-- scrollable container -->
         <section ref="scrollContainer" @wheel="handleWheel" @scroll="handleScroll" class="absolute top-0 left-0 w-full h-full overflow-y-scroll scroll-smooth">
             <div v-for="i in 12" class="w-full h-full text-center"></div>
@@ -49,7 +49,7 @@
 
         <!-- fg fade out -->
         <div @animationstart="$emit('togglescroll')" @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-black" :class="isScrollEnd ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer ref="container">
+    <GeneralContainer ref="container">
 
         <!-- text section -->
         <section @animationend="isStart = true" class="absolute top-0 left-0 w-full h-full transition-all duration-900" :class="[scrollPercent >= 100 ? 'translate-y-[-20%]' : 'translate-y-[0%]', isFadeToGame ? 'fade-out' : '' ]">
@@ -47,9 +47,9 @@
             </div>
 
             <div class="absolute top-[2%] right-[2%] w-[5.5%]">
-                <ElementButton @click="isBackDropShow = true; isSuggestShow = true">
+                <GeneralButton @click="isBackDropShow = true; isSuggestShow = true">
                     <img :src="images['15-howto-btn.png']">
-                </ElementButton>
+                </GeneralButton>
             </div>
             <div @click="isSuccess = true" class="w-[20%] h-[20%] absolute top-[38%] left-[41%] cursor-pointer" :class="isClickable ? '' : 'hidden' "></div>
             
@@ -66,14 +66,14 @@
                     <img :src="images['15-suggestion-01.png']">
                 </div>
                 <div class="absolute top-[13%] left-[47.2%] w-[7.5%]">
-                    <ElementButton @click="isBackDropShow = false; isSuggestShow = false">
+                    <GeneralButton @click="isBackDropShow = false; isSuggestShow = false">
                         <img :src="images['15-close-suggest.png']">
-                    </ElementButton>
+                    </GeneralButton>
                 </div>
             </div>
         </section>
 
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <!-- section room -->
         <section class="absolute top-0 left-0 transition-opacity duration-700" :class="!isSectionMirror ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
             <div>
@@ -11,9 +11,9 @@
                     <img :src="images['12-postit-00-01.png']">
                 </div>
                 <div class="absolute top-[68.7%] left-[53.7%] w-[6.8%]">
-                    <ElementButton @click="isButtonClicked = true">
+                    <GeneralButton @click="isButtonClicked = true">
                         <img :src="images['12-postit-00-01-btn.png']">
-                    </ElementButton>
+                    </GeneralButton>
                 </div>
             </div>
         </section>
@@ -64,7 +64,7 @@
         <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
 
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>

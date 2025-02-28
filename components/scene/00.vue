@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <!-- bg images -->
         <div class="absolute top-0 left-0">
             <img :src="images['00-cover01.png']">
@@ -14,9 +14,9 @@
         </div>
 
         <!-- start btn -->
-        <ElementButton @click="isSuggestShow = true" class="w-[10%] absolute top-[87%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <GeneralButton @click="isSuggestShow = true" class="w-[10%] absolute top-[87%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <img :src="images['00-btn-start.png']">
-        </ElementButton>
+        </GeneralButton>
 
         <!-- suggestion section -->
         <div class="absolute top-0 left-0 backdrop-blur-sm transition-opacity duration-400" :class="isSuggestShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
@@ -26,16 +26,18 @@
             </div>
 
             <!-- suggestion btn (emit here) -->
-            <ElementButton @click="isGameStart = true" class="w-[10%] absolute top-[70%] left-[50.5%] transform -translate-x-1/2 -translate-y-1/2">
+            <GeneralButton @click="isGameStart = true" class="w-[10%] absolute top-[70%] left-[50.5%] transform -translate-x-1/2 -translate-y-1/2">
                 <img :src="images['00-btn-suggest.png']">
-            </ElementButton>
+            </GeneralButton>
 
         </div>
 
         <!-- fg fade out -->
         <div @animationend="$emit('start')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGameStart ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
-    </ElementContainer>
+        <!-- fg fade in -->
+        <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none"></div>
+    </GeneralContainer>
 </template>
 
 <script setup>

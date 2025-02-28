@@ -1,5 +1,5 @@
 <template>
-    <ElementContainer>
+    <GeneralContainer>
         <!-- bg image -->
         <div class="absolute top-0 left-0">
             <img :src="images['03-desk.png']">
@@ -42,11 +42,11 @@
         <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none"></div>
 
         <!-- button -->
-        <ElementButtonRight @click="isButtonClicked = true" class="absolute bottom-[2%] right-[2%] w-[8%]" :class="isOpen == true ? '' : 'hidden' "/>
+        <GeneralButtonRight @click="isButtonClicked = true" class="absolute bottom-[2%] right-[2%] w-[8%]" :class="isOpen == true ? '' : 'hidden' "/>
 
         <!-- fg fade out -->
         <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isButtonClicked ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
-    </ElementContainer>
+    </GeneralContainer>
 </template>
 
 <script setup>
