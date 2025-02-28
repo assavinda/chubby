@@ -3,6 +3,7 @@ export function useImagePreloader() {
   const loadedImages = ref(0);
   const totalImages = ref(0);
   const isLoaded = ref(false);
+  const progress = ref(0)
 
   function importAllImages() {
     const context = import.meta.glob("/public/images/**/*.{png,jpg,jpeg,webp,gif,svg}", {
@@ -20,6 +21,8 @@ export function useImagePreloader() {
 
         img.onload = () => {
           loadedImages.value++;
+          progress.value = Math.round((loadedImages.value / totalImages.value) * 100);
+          console.log(progress.value)
           if (loadedImages.value === totalImages.value) {
             isLoaded.value = true;
             console.log("✅ All Images Loaded Successfullyyyyyy");
@@ -39,5 +42,5 @@ export function useImagePreloader() {
 
   importAllImages();
 
-  return { images, isLoaded };
+  return { images, isLoaded, progress };
 }

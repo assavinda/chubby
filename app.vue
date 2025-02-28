@@ -60,9 +60,11 @@ function toggleScrollIcon() {
 //use image preloader
 const { images } = useImagePreloader();
 const { isLoaded } = useImagePreloader();
+const { progress } = useImagePreloader();
 const isStartScene = ref(false);
 provide("preloaded", images);
 provide("loadstate", isLoaded);
+provide("progress", progress);
 
 watch(isLoaded, (val) => {
   if (val) {

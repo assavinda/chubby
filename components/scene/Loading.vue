@@ -9,15 +9,16 @@
                 </svg>
             </div>
 
-            <div class="responsive-text font-medium text-blue">
-                Loading . . .
-            </div>
+            <p class="responsive-text font-medium text-blue">
+                Loading {{ percent }} %
+            </p>
         </div>
     </GeneralContainer>
 </template>
 
 <script setup>
 const isLoaded = inject("loadstate");
+const percent = inject("progress");
 </script>
 
 <style scoped>
