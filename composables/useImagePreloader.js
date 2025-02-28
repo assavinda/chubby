@@ -36,7 +36,7 @@ export function useImagePreloader() {
       });
   }
 
-  importAllImages();
+  importAllImages()
 
   return { images, isLoaded, progress };
 }
