@@ -1,46 +1,28 @@
 export function useImagePreloader() {
   const images = ref({});
-  const loadedImages = ref(0);
-  const totalImages = ref(0);
-  const isLoaded = ref(false);
-  const progress = ref(0)
 
   function importAllImages() {
     const context = import.meta.glob("/public/images/**/*.{png,jpg,jpeg,webp,gif,svg}", {
       eager: true,
-      as: "url",
+      as: "url"  
     });
 
-    totalImages.value = Object.keys(context).length;
-
-    if (process.client) { 
-      Object.keys(context).forEach((key) => {
-        const imageName = key.replace("/public/images/", "").replace(/\//g, "-");
-        const img = new Image();
-        img.src = context[key];
-
-        img.onload = () => {
-          loadedImages.value++;
-          progress.value = Math.round((loadedImages.value / totalImages.value) * 100);
-          console.log(progress.value)
-          if (loadedImages.value === totalImages.value) {
-            isLoaded.value = true;
-            console.log("✅ All Images Loaded Successfullyyyyyy");
-          }
-        };
-
-        img.onerror = () => {
-          console.error(`❌ Failed to load image: ${imageName}`);
-        };
-
-        images.value[imageName] = img.src;
-      });
+    Object.keys(context).forEach((key) => {
+      const imageName = key
+        .replace("/public/images/", "") 
+        .replace(/\//g, "-");          
+      
+      images.value[imageName] = context[key];
+    });
+    const allImagesLoaded = Object.keys(images.value).length === Object.keys(context).length;
+    if (allImagesLoaded) {
+      console.log(`✅ All Images Loaded`);
     } else {
-      console.log("🚫 Skipping image preloading on server");
+      console.log(`❌ Some Images Failed To Load`);
     }
   }
 
   importAllImages();
 
-  return { images, isLoaded, progress };
+  return { images };
 }

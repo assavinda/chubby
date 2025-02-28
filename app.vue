@@ -1,8 +1,6 @@
 <template>
   <section class="flex h-screen w-screen bg-black place-items-center justify-center">
 
-    <SceneLoading v-if="!isStartScene" class="absolute top-0 left-0 transition-all duration-500 pointer-events-none"></SceneLoading>
-
     <Scene00 v-if="currentScene === '00'" @start="setScene('01')"></Scene00>
 
     <Scene01 v-if="currentScene === '01'" @nextpage="setScene('02')" @togglescroll="toggleScrollIcon"></Scene01>
@@ -35,7 +33,7 @@
 
     <Scene15 v-if="currentScene === '15'" @nextpage="setScene('16')" @togglescroll="toggleScrollIcon"></Scene15>
 
-    <div v-if="isLoaded" class="absolute pointer-events-none z-[100] transition-opacity duration-300" :class="isShowScrollIcon ? 'opacity-100' : 'opacity-0' ">
+    <div class="absolute pointer-events-none z-[100] transition-opacity duration-300" :class="isShowScrollIcon ? 'opacity-100' : 'opacity-0' ">
       <section class="relative w-fit h-fit overflow-hidden">
         <!-- bg holder -->
         <div>
@@ -59,21 +57,7 @@ function toggleScrollIcon() {
 
 //use image preloader
 const { images } = useImagePreloader();
-const { isLoaded } = useImagePreloader();
-const { progress } = useImagePreloader();
-const isStartScene = ref(false);
 provide("preloaded", images);
-provide("loadstate", isLoaded);
-provide("progress", progress);
-
-watch(isLoaded, (val) => {
-  if (val) {
-    setTimeout(() => {
-      isStartScene.value = true;
-      setScene('00');
-    }, 600);
-  }
-});
 
 //font Kanit
 useHead({
@@ -94,7 +78,7 @@ useHead({
 //--SCENES MANAGEMENT--
 
 //current scene (state)
-const currentScene = ref('');
+const currentScene = ref('00');
 
 //set scene function
 function setScene(sceneName) {
