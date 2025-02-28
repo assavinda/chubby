@@ -13,6 +13,7 @@ export function useImagePreloader() {
 
     totalImages.value = Object.keys(context).length;
 
+    if (process.client) { 
       Object.keys(context).forEach((key) => {
         const imageName = key.replace("/public/images/", "").replace(/\//g, "-");
         const img = new Image();
@@ -24,7 +25,7 @@ export function useImagePreloader() {
           console.log(progress.value)
           if (loadedImages.value === totalImages.value) {
             isLoaded.value = true;
-            console.log("✅ All Images Loaded Successfully");
+            console.log("✅ All Images Loaded Successfullyyyyyy");
           }
         };
 
@@ -34,9 +35,12 @@ export function useImagePreloader() {
 
         images.value[imageName] = img.src;
       });
+    } else {
+      console.log("🚫 Skipping image preloading on server");
+    }
   }
 
-  importAllImages()
+  importAllImages();
 
   return { images, isLoaded, progress };
 }
