@@ -65,7 +65,7 @@ useHead({
     {
       rel: "icon",
       type: "image/png",
-      href: "./images/icon/logo.png", // เปลี่ยนเป็น path ของไฟล์ favicon ของคุณ
+      href: "./images/icon/logo.png",
     },
     {
       rel: "stylesheet",
@@ -78,7 +78,7 @@ useHead({
 //--SCENES MANAGEMENT--
 
 //current scene (state)
-const currentScene = ref('00');
+const currentScene = ref('15');
 
 //set scene function
 function setScene(sceneName) {

@@ -73,6 +73,14 @@
             </div>
         </section>
 
+        <!-- credits -->
+        <section class="absolute top-0 left-0 pointer-events-none transition-opacity duration-700" :class="isVideoShow ? 'opacity-100' : 'opacity-0'">
+            <video ref="videoRef" @loadeddata="isVideoReady = true" class="w-full">
+            <source src="/videos/endtouchheart.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
     </GeneralContainer>
 </template>
 
@@ -84,6 +92,7 @@ const isSuggestShow = ref(true)
 const isBackDropShow = ref(true)
 const isClickable = ref(false)
 const isFadeToGame = ref(false)
+
 let emit = defineEmits()
 
 onMounted(() => {
@@ -155,7 +164,7 @@ function getBound() {
 }
 
 const widths = ref({
-    'heart01': 30,
+    'heart01': 30.6,
     'heart02': 30.4,
     'heart03': 19,
     'heart04': 19.4,
@@ -170,7 +179,7 @@ const widths = ref({
 
 const pos = ref(
     {
-        'heart01': { top: 6.6, left: 23 },
+        'heart01': { top: 6.6, left: 22.4 },
         'heart02': { top: 4.4, left: 52.2 },
         'heart03': { top: 38.4, left: 16.8 },
         'heart04': { top: 41.69, left: 38.47 },
@@ -185,7 +194,7 @@ const pos = ref(
 );
 const originPos = ref(
     {
-        'heart01': { top: 6.6, left: 23 },
+        'heart01': { top: 6.6, left: 22.4 },
         'heart02': { top: 4.4, left: 52.2 },
         'heart03': { top: 38.4, left: 16.8 },
         'heart04': { top: 41.69, left: 38.47 },
@@ -200,7 +209,7 @@ const originPos = ref(
 );
 const destinationPos = ref(
     {
-        'heart01': { top: 13, left: 23.2 },
+        'heart01': { top: 12.6, left: 22.8 },
         'heart02': { top: 12, left: 48.61 },
         'heart03': { top: 28.30, left: 22.06 },
         'heart04': { top: 33.8, left: 35 },
@@ -301,6 +310,38 @@ function stopDrag() {
     document.removeEventListener('mousemove', onDrag);
     document.removeEventListener('mouseup', stopDrag);
 }
+
+// manage video
+const isVideoShow = ref(false)
+const isVideoReady = ref(false)
+const videoRef = ref(null);
+
+watch(isSuccess, (value) => {
+    if (value) {
+        isVideoShow.value = true
+    }
+})
+
+watch(isVideoReady, (value) => {
+    if (value) {
+        console.log('ready!!!!')
+    }
+})
+
+watch(isVideoShow, (value) => {
+  if (videoRef.value) {
+    if (value) {
+      videoRef.value.play();
+      console.log('play')
+    } else {
+      videoRef.value.pause();
+    }
+  }
+  else {
+    isVideoShow.value = false
+    console.log(isVideoReady.value)
+  }
+});
 
 </script>
 

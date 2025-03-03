@@ -12,7 +12,6 @@
 <script setup>
 const images = inject("preloaded");
 
-
 </script>
 
 <style scoped>

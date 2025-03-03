@@ -66,14 +66,15 @@
 
         <!-- curtain -->
         <div ref="curtainBox" @click="animateCurtain" class="absolute top-0 left-0 z-[200] transition-all duration-500 cursor-pointer">
+            <img class="curtain absolute top-0 left-0 transition-opacity duration-300 opacity-0" ref="curtainend" :src="images[`14-curtain-c0_10.png`]">
             <img class="curtain" ref="curtain" :src="images[currentCurtainFrame]">
         </div>
 
         <!-- fg fade out -->
-        <div @animationstart="$emit('togglescroll')" @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall z-[201]" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
+        <div @animationstart="$emit('togglescroll')" @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall z-[202]" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
         <!-- fg fade in -->
-        <div class="absolute top-0 left-0 w-full h-full bg-wall z-[201] fade-out pointer-events-none"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-wall z-[202] fade-out pointer-events-none"></div>
 
     </GeneralContainer>
 </template>
@@ -347,16 +348,22 @@ function setItem(category, item , zindex) {
 }
 
 const curtain = ref(null)
+const curtainend = ref(null)
 const curtainBox = ref(null)
-const currentCurtainFrame = ref('14-curtain-c1_10.png')
+const currentCurtainFrame = ref('14-curtain-c0_10.png')
 let c = 0
 
 function animateCurtain() {
     if (!curtain.value) return
     curtainBox.value.classList.add('pointer-events-none')
     function step() {
-        if (c < 60) {
-            currentCurtainFrame.value = `14-curtain-c1_1${c}.png`
+        if (c <= 62) {
+            if (c == 0) {
+                currentCurtainFrame.value = `14-curtain-c0_10.png`
+            }
+            else {
+                currentCurtainFrame.value = `14-curtain-c1_1${c}.png`
+            }
             c++
             setTimeout(step, 40)
         } else {
@@ -370,20 +377,29 @@ function animateCurtain() {
 
 function nextgame() {
     if (!curtain.value) return
-    c = 60
     curtain.value.classList.remove('hidden')
+    c = 62
     function step() {
         if (c >= 0) {
-            currentCurtainFrame.value = `14-curtain-c1_1${c}.png`
+            if (c == 4) {
+                currentCurtainFrame.value = `14-curtain-c1_1${c}.png`
+                curtainend.value.classList.remove('opacity-0')
+                curtainend.value.classList.add('opacity-100')
+            }
+            else {
+                currentCurtainFrame.value = `14-curtain-c1_1${c}.png`
+            }
             c--
             setTimeout(step, 40)
-        }
-        else {
+        } else {
+            
             setTimeout(() => {
                 isGoingToNext.value = true
             },700)
         }
+        console.log(c)
     }
+
     step()
 }
 </script>

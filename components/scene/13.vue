@@ -91,7 +91,7 @@
                     <!-- page 4 -->
                     <div class="absolute top-0 right-0">
                         <div>
-                            <img :src="images['13-P2-0-01.png']">
+                            <img :src="images['13-P2-0-02.png']">
                         </div>
 
                         <div class="absolute top-0 right-0 pointer-events-none">
@@ -101,7 +101,7 @@
                         <!-- vinyl -->
                         <div ref="vinyl" class="absolute top-[14%] right-[5.5%] w-[40%] pointer-events-none">
                             <div>
-                                <img :src="images['13-P2-R-02.png']">
+                                <img :src="images['13-P2-R-04.png']">
                             </div>
                             <div ref="vmodel05" class="absolute top-[64%] left-[37%] w-[23%] ">
                                 <img :src="images['13-P2-v5.png']">
@@ -118,6 +118,10 @@
                             <div ref="vmodel01" class="absolute top-[42%] left-[7%] w-[26%] ">
                                 <img :src="images['13-P2-v1.png']">
                             </div>
+                        </div>
+
+                        <div class="absolute top-[48%] right-[24.5%] w-[1.7%]">
+                            <img :src="images['13-P2-R-02-whitepoint.png']">
                         </div>
 
                         <!-- เข็ม -->
@@ -345,7 +349,7 @@ const onMouseMove = (e) => {
   const clientX = e.touches ? e.touches[0].clientX : e.clientX;
   const dpcX = (clientX - container.value.left) / container.value.width * 100;
   console.log(needleRotation.value)
-  if (needleRotation.value < 66) {
+  if (needleRotation.value < 64) {
     needleRotation.value = (100 - dpcX) * 3
   }
   else {

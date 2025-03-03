@@ -51,8 +51,7 @@
             <div class="absolute top-0 left-0">
                 <img :src="images['07-work-05-01.png']">
             </div>
-            <div @mousedown="startDrag" class="absolute top-[3.8%] left-[6.2%] w-[10%] cursor-pointer"
-            :style="{ top: `${pos.top}%`, left: `${pos.left}%`}">
+            <div @mousedown="startDrag" class="absolute top-[3.8%] left-[6.2%] w-[10%] cursor-pointer" :style="{ top: `${pos.top}%`, left: `${pos.left}%`}">
                 <img :src="images['07-ID_other.png']">
             </div>
         </section>
