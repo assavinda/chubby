@@ -52,10 +52,6 @@
                 </GeneralButton>
             </div>
             <div @click="isSuccess = true" class="w-[20%] h-[20%] absolute top-[38%] left-[41%] cursor-pointer" :class="isClickable ? '' : 'hidden' "></div>
-            
-            <div class="w-full h-full absolute top-0 left-0" :class="isSuccess ? 'fade-in' : 'hidden' ">
-                <img :src="images['15-credit.png']">
-            </div>
 
             <div class="w-full h-full absolute top-0 left-0 backdrop-blur-xs transition-opacity duration-700" :class="isBackDropShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
                 <div class="w-full h-full absolute top-0 left-0 bg-black opacity-25 duration-700"></div>
@@ -74,13 +70,16 @@
         </section>
 
         <!-- credits -->
-        <section class="absolute top-0 left-0 pointer-events-none transition-opacity duration-700" :class="isVideoShow ? 'opacity-100' : 'opacity-0'">
+        <section class="absolute top-[-0.5%] left-[0%] w-[100.5%] pointer-events-none transition-opacity duration-700" :class="isVideoShow ? 'opacity-100' : 'opacity-0'">
             <video ref="videoRef" @loadeddata="isVideoReady = true" class="w-full">
             <source src="/videos/endtouchheart.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </section>
-
+        
+        <!-- <div class="w-full h-full absolute top-0 left-0 opacity-50">
+            <img :src="images['15-all02-01.png']">
+        </div> -->
     </GeneralContainer>
 </template>
 
