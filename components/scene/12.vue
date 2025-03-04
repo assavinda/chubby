@@ -63,6 +63,8 @@
         <!-- fg fade out -->
         <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
+        <!-- fg fade in -->
+        <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none"></div>
 
     </GeneralContainer>
 </template>
@@ -113,12 +115,6 @@ function animatePostit() {
     }
     
 }
-
-let emit = defineEmits()
-
-onMounted(() => {
-    emit('togglescroll')
-})
 
 </script>
 

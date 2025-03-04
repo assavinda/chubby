@@ -1,5 +1,11 @@
 <template>
     <GeneralContainer ref="container" class="object-cover">
+        <!-- fg fade in -->
+        <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none z-[101]"></div>
+
+        <!-- fg fade out -->
+        <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall z-[101]" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
+
         <div ref="scrollContainer" class="flex absolute top-0 left-0 w-[200%] overflow-x-scroll overflow-y-hidden">
             <section>
                 <div>
@@ -31,7 +37,7 @@
                     </div>
                 </div>
 
-                <div v-if="websiteIsOpen" class="absolute top-0 left-0 z-10 w-[50%]">
+                <div class="absolute top-0 left-0 z-10 w-[50%] transition-opacity duration-500" :class="websiteIsOpen ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
                     <div>
                         <img :src="images['13-black-02.png']"> 
                     </div>
@@ -189,16 +195,17 @@
             <img :src="images['13-01-02.png']">
         </div>
 
-        <div ref="postit" class="absolute top-0 left-[0%] backdrop-blur-sm hidden z-[100]">
+        <div class="absolute top-0 left-[0%] backdrop-blur-sm z-[100] transition-opacity duration-300" :class="isPostitShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
             <div class="cursor-pointer">
-                <div v-if="postimg == 'yw01'" @click="postimg = 'yw02';console.log(postimg)">
+                <div @click="postimg = 'p2'" class="transition-opacity duration-300" :class="postimg == 'p1' ? 'opacity-100' : 'opacity-0 pointer-events-none'">
                     <img :src="images['13-yw-01.png']">
                 </div>
-                <div v-else @click="$emit('nextpage')">
+                <div @click="isGoingToNext = true" class="absolute top-0 left-0 transition-opacity duration-300" :class="postimg == 'p2' ? 'opacity-100' : 'opacity-0 pointer-events-none'">
                     <img :src="images['13-yw-02.png']">
                 </div>
             </div>
         </div>
+
     </GeneralContainer>
     
 </template>
@@ -208,6 +215,7 @@ const images = inject("preloaded");
 const currentScreen = ref('goobby')
 const currentWebIndex = ref('none')
 const websiteIsOpen = ref(false)
+const isGoingToNext = ref(false)
 
 const magazine = ref(null)
 const model01 = ref(null)
@@ -224,17 +232,26 @@ const vmodel03 = ref(null)
 const vmodel04 = ref(null)
 const vmodel05 = ref(null)
 
-const postit = ref(null)
-const postimg = ref('yw01')
+const isPostitShow = ref(false)
+const postimg = ref('p1')
 
 function showPostit() {
-    postit.value.classList.remove('hidden')
+    isPostitShow.value = true
 }
 
 
 const scrollPosition = ref(0);
 const scrollContainer = ref(null);
 const isScrollLocked = ref(false);
+
+watch(websiteIsOpen, (newValue) => {
+    if (newValue) {
+        isScrollLocked.value = true
+    }
+    else {
+        isScrollLocked.value = false
+    }
+});
 
 
 const arrowOpacity = ref(1)
