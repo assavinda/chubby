@@ -6,9 +6,9 @@
         </div>
 
         <!-- open eyes -->
-        <div @animationend="$emit('togglescroll')" class="w-[120%] h-[60%] absolute left-[-10%] top-[-5%] bg-black blur-sm eye-top"></div>
+        <div @animationend="$emit('togglescroll')" class="w-[120%] h-[60%] absolute left-[-10%] bg-black eye-top"></div>
 
-        <div class="w-[120%] h-[60%] absolute left-[-10%] bottom-[-5%] bg-black blur-sm eye-bottom"></div>
+        <div class="w-[120%] h-[60%] absolute left-[-10%] bg-black eye-bottom"></div>
 
         <!-- scrollable container -->
         <section ref="scrollContainer" @wheel="handleWheel" @scroll="handleScroll" class="absolute top-0 left-0 w-full h-full mask" :class="isScrollEnd ? '' : 'overflow-y-scroll scroll-smooth' ">

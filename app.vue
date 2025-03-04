@@ -44,9 +44,7 @@
         <GeneralScrIcon/>
       </section>
     </div>
-    <div ref="cursor" class="custom-cursor">
-      <img :src="currentCursor" width="60%">
-    </div>
+
   </section>
 </template>
 
@@ -60,71 +58,6 @@ function toggleScrollIcon() {
 //use image preloader
 const { images } = useImagePreloader();
 provide("preloaded", images);
-
-// Refs to manage cursor and its state
-const cursor = ref(null);
-const isPointer = ref(false);
-const currentCursor = ref('/cursor/NH32-32.png');
-
-// Watch the pointer state to change cursor image
-watch(isPointer, (newValue) => {
-  if (newValue) {
-    if (currentCursor.value != '/cursor/H32-32.png') {
-      currentCursor.value = '/cursor/H32-32.png';
-    }
-  } else {
-    if (currentCursor.value != '/cursor/NH32-32.png') {
-      currentCursor.value = '/cursor/NH32-32.png';
-    }
-  }
-});
-
-// Update cursor position and type efficiently
-const updateCursor = (e) => {
-  const percentX = (e.clientX / window.innerWidth) * 100;
-  const percentY = (e.clientY / window.innerHeight) * 100;
-
-  if (cursor.value) {
-    cursor.value.style.left = `${percentX + 2}%`;
-    cursor.value.style.top = `${percentY}%`;
-  }
-
-  // Check if the mouse is over an element with cursor-pointer
-  const element = document.elementFromPoint(e.clientX, e.clientY);
-  if (element && element.classList.contains('cursor-pointer')) {
-    isPointer.value = true;
-  } else {
-    isPointer.value = false;
-  }
-};
-
-onMounted(() => {
-  // Handle the cursor movement in an efficient manner using requestAnimationFrame
-  const moveCursor = (e) => {
-    requestAnimationFrame(() => updateCursor(e));
-  };
-
-  // Add event listener for mousemove
-  document.addEventListener('mousemove', moveCursor);
-
-  // Handle hover events using mouseenter/mouseleave
-  const elementsWithPointer = document.querySelectorAll('.cursor-pointer');
-
-  elementsWithPointer.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-      isPointer.value = true;
-    });
-
-    element.addEventListener('mouseleave', () => {
-      isPointer.value = false;
-    });
-  });
-});
-
-// Clean up event listeners when the component is unmounted
-onUnmounted(() => {
-  document.removeEventListener('mousemove', moveCursor);
-});
 
 //font Kanit
 useHead({
@@ -154,24 +87,18 @@ function setScene(sceneName) {
 </script>
 
 <style>
+
 * {
-  cursor: none !important;
+  cursor: url('/cursor/NH32-32-s.png') 35 50, auto !important;
+}
+
+.cursor-pointer {
+  cursor: url('/cursor/H32-32-s.png') 35 50, pointer !important;
 }
 
 body {
   overflow: hidden;
   font-family: "Kanit", serif;
-}
-
-.custom-cursor {
-    position: fixed;
-    width: 10%;
-    height: 10%;
-    /* background: url('/cursor/H32-32.svg') no-repeat center;
-    background-size: cover; */
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
 }
 
 img {
