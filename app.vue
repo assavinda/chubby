@@ -51,7 +51,7 @@
         </audio>
     </div>
 
-    <div class="absolute top-0 left-0">
+    <div v-if="currentSoundEffect != ''" class="absolute top-0 left-0">
         <audio ref="soundeffects">
           <source :src="`./sounds/effects/${currentSoundEffect}.mp3`" type="audio/mpeg">
         </audio>
