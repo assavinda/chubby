@@ -17,9 +17,9 @@
 
     <Scene07 v-if="currentScene === '07'" @nextpage="setScene('08')" @togglescroll="toggleScrollIcon"></Scene07>
 
-    <Scene08 v-if="currentScene === '08'" @nextpage="setScene('10')" @togglescroll="toggleScrollIcon"></Scene08>
+    <Scene08 v-if="currentScene === '08'" @nextpage="setScene('09')" @togglescroll="toggleScrollIcon"></Scene08>
 
-    <Scene09 v-if="currentScene === '09'" @nextpage="setScene('10')"></Scene09>
+    <Scene09 v-if="currentScene === '09'" @nextpage="setScene('10')" @togglescroll="toggleScrollIcon"></Scene09>
 
     <Scene10 v-if="currentScene === '10'" @nextpage="setScene('12')" @togglescroll="toggleScrollIcon"></Scene10>
 

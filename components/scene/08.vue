@@ -14,7 +14,7 @@
         </section>
 
         <!-- people -->
-        <section @animationstart="isTextShow = false" @animationend="isPeopleCome = false; isPeopleGo = false ; isScrollLock = false; currentPeopleSet++" class="absolute top-[-30%] right-[-16%] z-[9] w-[55%]" :class="[isPeopleCome ? 'opacity-100 translate-y-[0%] transition-all duration-500' : 'opacity-0 translate-y-[40%]', isPeopleGo && currentPeopleSet != 3 ? 'peoplego' : '']">
+        <section @animationstart="isTextShow = false" @animationend="isPeopleCome = false; isPeopleGo = false ; isScrollLock = false; currentPeopleSet++" class="absolute top-[-30%] right-[-16%] z-[9] w-[55%]" :class="[isPeopleCome ? 'opacity-100 translate-y-[0%] transition-all duration-500' : 'opacity-0 translate-y-[40%]', isPeopleGo ? 'peoplego' : '']">
             <div>
                 <img :src="images['08-people.png']">
             </div>
@@ -71,6 +71,13 @@
             <div class="w-full h-full"></div>
         </section>
 
+        <!-- stop bully -->
+         <section class="absolute top-0 left-0 pointer-events-none z-[30]">
+            <div>
+                <img :src="images[bullyCurrentFrame]">
+            </div>
+         </section>
+
         <!-- fg fade in -->
         <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none z-[21]"></div>
 
@@ -85,7 +92,7 @@ const images = inject('preloaded')
 const scrollContainer = ref(null)
 const scrollPercent = ref(0)
 const isScrollEnd = ref(false)
-const isScrollLock = ref(false)
+const isScrollLock = ref(true)
 
 let lastScrollTime = 0
 
@@ -139,7 +146,10 @@ watch(scrollPercent, (newVal) => {
     else if (newVal >= 100) {
         isScrollEnd.value = true
         setTimeout(() => {
-            emit('nextpage')
+            isPeopleGo.value = true
+            setTimeout(() => {
+                animateBully()
+            },500)
         }, 1200)
     }
 })
@@ -165,6 +175,10 @@ function animateHand() {
 onMounted(() => {
     animateHand()
     emit('togglescroll')
+    setTimeout(() => {
+        isScrollLock.value = false
+        console.log('unlock')
+    },700)
 });
 
 //animate people
@@ -174,6 +188,26 @@ const isTextShow = ref(false)
 
 let emit = defineEmits()
 
+//animate bully
+const bullyCurrentFrame = ref('08-stop-รวม_00024.png')
+let bullyInterval
+
+function animateBully() {
+    let bullycount = 24;
+    bullyInterval = setInterval(() => {
+        if (bullycount >= 281) {
+            bullyCurrentFrame.value = `08-stop-รวม_00${bullycount}.png`
+            emit('nextpage')
+        } 
+        else if (bullycount <= 99) {
+            bullyCurrentFrame.value = `08-stop-รวม_000${bullycount}.png`
+        }
+        else if (bullycount >= 100 && bullycount < 281) {
+            bullyCurrentFrame.value = `08-stop-รวม_00${bullycount}.png`
+        }
+        bullycount++;
+    }, 30);
+}
 
 </script>
 

@@ -29,9 +29,9 @@
                         </div>
 
                         <div @click="websiteIsOpen = !websiteIsOpen" class="absolute top-[20%] left-[24%] w-[44%] h-[42%] flex flex-col cursor-pointer">
-                            <div @click="setWeb(0)" class="w-full h-[68%]"></div>
-                            <div @click="setWeb(1)" class="w-full h-[68%]"></div>
-                            <div @click="setWeb(2)" class="w-full h-full"></div>
+                            <div @click="setWeb(0)" class="w-full h-[68%] cursor-pointer"></div>
+                            <div @click="setWeb(1)" class="w-full h-[68%] cursor-pointer"></div>
+                            <div @click="setWeb(2)" class="w-full h-full cursor-pointer"></div>
                         </div>
                         
                     </div>
@@ -71,7 +71,7 @@
                     <img :src="images['13-maz00-01.png']">
                 </div>
 
-                <div @click="openMagazine" class="absolute bottom-0 left-[67%] w-[15%] cursor-pointer">
+                <div @click="openMagazine" class="absolute bottom-0 left-[67%] w-[15%] cursor-pointer mag">
                     <img :src="images['13-maz00-01.png']">
                 </div>
 
@@ -82,10 +82,10 @@
                         <div>
                         <img :src="images['13-P1-P1_L.png']"> 
                         </div>
-                        <div ref="model01" class="absolute top-[10%] w-[40%] models-left pointer-events-none" :style="{ left: 49 + '%' }">
+                        <div @click="LbounceControl" ref="model01" class="absolute top-[10%] w-[40%] models-left pointer-events-none " :style="{ left: 49 + '%' }">
                             <img :src="images['13-P1-01-P1_L.png']"> 
                         </div>
-                        <div ref="model02" class="absolute top-[54%] w-[40%] models-left pointer-events-none" :style="{ left: 49 + '%' }">
+                        <div ref="model02" class="absolute top-[54%] w-[40%] models-left pointer-events-none " :style="{ left: 49 + '%' }">
                             <img :src="images['13-P1-02-P1_L.png']"> 
                         </div>
                         <div class="absolute top-[0.9%] left-[57.45%] w-[36.8%] pointer-events-none">
@@ -139,8 +139,10 @@
                             <img :src="images['13-P2-02_P2_R.png']">
                         </div>
 
-                        <div @click="showPostit" class="absolute right-[4%] bottom-[2.3%] w-[5.3%] cursor-pointer">
-                            <img :src="images['13-button-R.png']">
+                        <div @click="showPostit" class="absolute right-[4%] bottom-[2.3%] w-[5.3%]">
+                            <GeneralButton>
+                                <img :src="images['13-button-R.png']">
+                            </GeneralButton>
                         </div>
                     </div>
                     
@@ -150,10 +152,10 @@
                             <div>
                                 <img :src="images['13-P2-P2_L.png']">
                             </div>
-                            <div ref="model04" class="absolute top-[10%] w-[40%] models-left pointer-events-none" :style="{ left: 49 + '%' }">
+                            <div ref="model04" class="absolute top-[10%] w-[40%] models-left pointer-events-none " :style="{ left: 49 + '%' }">
                                 <img :src="images['13-P2-01_P2_L.png']"> 
                             </div>
-                            <div ref="model05" class="absolute top-[54%] w-[40%] models-left pointer-events-none" :style="{ left: 49 + '%' }">
+                            <div ref="model05" class="absolute top-[54%] w-[40%] models-left pointer-events-none " :style="{ left: 49 + '%' }">
                                 <img :src="images['13-P2-02_P2_L.png']"> 
                             </div>
                             <div class="absolute top-[0.9%] left-[58.6%] w-[35.85%] pointer-events-none">
@@ -161,8 +163,10 @@
                             </div>
                             <div @click="model04.style.left == '49%' ? model04.style.left = '23%' : model04.style.left = '49%'" class="absolute top-[24.5%] left-[23%] w-[35%] h-[7%] z-[11] cursor-pointer"></div>
                             <div @click="model05.style.left == '49%' ? model05.style.left = '23%' : model05.style.left = '49%'" class="absolute top-[68.5%] left-[23%] w-[35%] h-[7%] z-[11] cursor-pointer"></div>
-                            <div @click="flipPage" class="absolute left-[4%] bottom-[2.3%] w-[10%] cursor-pointer">
-                                <img :src="images['13-button-L.png']"> 
+                            <div @click="flipPage" class="absolute left-[4%] bottom-[2.3%] w-[10%]">
+                                <GeneralButton>
+                                    <img :src="images['13-button-L.png']"> 
+                                </GeneralButton>
                             </div>
                         </div>
 
@@ -178,8 +182,10 @@
                                 <img :src="images['13-P1-02-P1_R.png']">
                             </div>
                             <div @click="model03.style.bottom == '6%' ? model03.style.bottom = '40%' : model03.style.bottom = '6%'" class="absolute bottom-[49%] left-[44.25%] w-[10%] h-[43%]   z-[11] cursor-pointer"></div>
-                            <div @click="flipPage" class="absolute right-[4%] bottom-[2.3%] w-[10.8%] cursor-pointer">
-                                <img :src="images['13-button-R.png']">
+                            <div @click="flipPage" class="absolute right-[4%] bottom-[2.3%] w-[10.8%]">
+                                <GeneralButton>
+                                    <img :src="images['13-button-R.png']">
+                                </GeneralButton>
                             </div>
                         </div>
                     </div>
@@ -195,7 +201,7 @@
             <img :src="images['13-01-02.png']">
         </div>
 
-        <div class="absolute top-0 left-[0%] backdrop-blur-sm z-[100] transition-opacity duration-300" :class="isPostitShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
+        <div class="absolute top-0 left-[0%] backdrop-blur-sm cursor-pointer z-[100] transition-opacity duration-300" :class="isPostitShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
             <div class="cursor-pointer">
                 <div @click="postimg = 'p2'" class="transition-opacity duration-300" :class="postimg == 'p1' ? 'opacity-100' : 'opacity-0 pointer-events-none'">
                     <img :src="images['13-yw-01.png']">
@@ -238,7 +244,6 @@ const postimg = ref('p1')
 function showPostit() {
     isPostitShow.value = true
 }
-
 
 const scrollPosition = ref(0);
 const scrollContainer = ref(null);
@@ -456,17 +461,17 @@ const stopDrag = () => {
     mask-size: contain;
 }
 
-/* section {
-  flex: 0 0 100vw;
-  height: 100vh;
-  scroll-snap-align: start;
+@keyframes mag {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02);
+    }
 }
 
-.scroll-container {
-  display: flex;
-  width: 100vw;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-} */
+.mag {
+    animation: mag alternate infinite 0.5s ease;
+}
 
 </style>

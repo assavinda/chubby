@@ -76,10 +76,6 @@
                 Your browser does not support the video tag.
             </video>
         </section>
-        
-        <!-- <div class="w-full h-full absolute top-0 left-0 opacity-50">
-            <img :src="images['15-all02-01.png']">
-        </div> -->
     </GeneralContainer>
 </template>
 
@@ -286,9 +282,14 @@ function onDrag(e) {
     }
 
     console.log(pos.value[currentTarget.value].left, pos.value[currentTarget.value].top)
+    let plus = 3
 
-    if (pos.value[currentTarget.value].top <= destinationPos.value[currentTarget.value].top + 3 && pos.value[currentTarget.value].top >= destinationPos.value[currentTarget.value].top - 3
-     && pos.value[currentTarget.value].left <= destinationPos.value[currentTarget.value].left + 3 && pos.value[currentTarget.value].left >= destinationPos.value[currentTarget.value].left - 3) {
+    if (currentTarget.value.includes('paper')) {
+        plus = 6
+    }
+
+    if (pos.value[currentTarget.value].top <= destinationPos.value[currentTarget.value].top + plus && pos.value[currentTarget.value].top >= destinationPos.value[currentTarget.value].top - plus
+     && pos.value[currentTarget.value].left <= destinationPos.value[currentTarget.value].left + plus && pos.value[currentTarget.value].left >= destinationPos.value[currentTarget.value].left - plus) {
 
         pos.value[currentTarget.value].left = destinationPos.value[currentTarget.value].left
         pos.value[currentTarget.value].top = destinationPos.value[currentTarget.value].top
