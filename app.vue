@@ -1,27 +1,27 @@
 <template>
   <section class="flex h-screen w-screen bg-black place-items-center justify-center">
 
-    <Scene00 v-if="currentScene === '00'" @start="setScene('01')"></Scene00>
+    <Scene00 v-if="currentScene === '00'" @start="setScene('01')" @themesong="playThemeSong"></Scene00>
 
     <Scene01 v-if="currentScene === '01'" @nextpage="setScene('02')" @togglescroll="toggleScrollIcon"></Scene01>
 
     <Scene02 v-if="currentScene === '02'" @nextpage="setScene('03')" @togglescroll="toggleScrollIcon"></Scene02>
 
-    <Scene03 v-if="currentScene === '03'" @nextpage="setScene('04')"></Scene03>
+    <Scene03 v-if="currentScene === '03'" @nextpage="setScene('04')" @soundeffect="playSoundEffect"></Scene03>
 
     <Scene04 v-if="currentScene === '04'" @nextpage="setScene('05')" @togglescroll="toggleScrollIcon"></Scene04>
 
     <Scene05 v-if="currentScene === '05'" @nextpage="setScene('06')"></Scene05>
 
-    <Scene06 v-if="currentScene === '06'" @nextpage="setScene('07')"></Scene06>
+    <Scene06 v-if="currentScene === '06'" @nextpage="setScene('07')" @soundeffect="playSoundEffect"></Scene06>
 
-    <Scene07 v-if="currentScene === '07'" @nextpage="setScene('08')" @togglescroll="toggleScrollIcon"></Scene07>
+    <Scene07 v-if="currentScene === '07'" @nextpage="setScene('08')" @soundeffect="playSoundEffect" @pauseeffect="pauseSoundEffect" @togglescroll="toggleScrollIcon"></Scene07>
 
     <Scene08 v-if="currentScene === '08'" @nextpage="setScene('09')" @togglescroll="toggleScrollIcon"></Scene08>
 
-    <Scene09 v-if="currentScene === '09'" @nextpage="setScene('10')" @togglescroll="toggleScrollIcon"></Scene09>
+    <Scene09 v-if="currentScene === '09'" @nextpage="setScene('10')" @themesong="playThemeSong" @togglescroll="toggleScrollIcon"></Scene09>
 
-    <Scene10 v-if="currentScene === '10'" @nextpage="setScene('12')" @togglescroll="toggleScrollIcon"></Scene10>
+    <Scene10 v-if="currentScene === '10'" @nextpage="setScene('12')" @soundeffect="playSoundEffect" @pauseeffect="pauseSoundEffect" @togglescroll="toggleScrollIcon"></Scene10>
 
     <Scene11 v-if="currentScene === '11'" @nextpage="setScene('12')"></Scene11>
 
@@ -45,6 +45,18 @@
       </section>
     </div>
 
+    <div class="absolute top-0 left-0">
+        <audio ref="themesong" loop>
+          <source :src="`/sounds/${currentThemeSong}.mp3`" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="absolute top-0 left-0">
+        <audio ref="soundeffects">
+          <source :src="`/sounds/effects/${currentSoundEffect}.mp3`" type="audio/mpeg">
+        </audio>
+    </div>
+
   </section>
 </template>
 
@@ -54,6 +66,51 @@ const isShowScrollIcon = ref(false)
 function toggleScrollIcon() {
   isShowScrollIcon.value = !isShowScrollIcon.value
 }
+
+const themesong = ref(null);
+const currentThemeSong = ref('main')
+const soundeffects = ref(null)
+const currentSoundEffect = ref('')
+
+onMounted(() => {
+  document.addEventListener('click', () => {
+    if (themesong.value && themesong.value.paused) {
+      playThemeSong('main');
+    }
+  });
+});
+
+function playThemeSong(sound) {
+  currentThemeSong.value = sound;
+  nextTick(() => {
+    themesong.value.load();
+    themesong.value.play();
+  });
+  if (sound == 'main') {
+    themesong.value.volume = 0.05;
+  }
+  else {
+    themesong.value.volume = 0.025;
+  }
+};
+
+function pauseThemeSong() {
+  console.log('pause')
+  themesong.value.pause();
+};
+
+function playSoundEffect(sound) {
+  currentSoundEffect.value = sound;
+  nextTick(() => {
+    soundeffects.value.load();
+    soundeffects.value.play();
+  });
+};
+
+function pauseSoundEffect() {
+  console.log('pause')
+  soundeffects.value.pause();
+};
 
 //use image preloader
 const { images } = useImagePreloader();

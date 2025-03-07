@@ -55,7 +55,7 @@
         </section>
 
         <!-- fg fade out -->
-        <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
+        <div @animationend="$emit('nextpage'); $emit('soundeffect','clock')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGoingToNext ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
     </GeneralContainer>
 </template>

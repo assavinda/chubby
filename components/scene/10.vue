@@ -6,7 +6,7 @@
                 <div class="absolute top-[0%] left-0 z-[1] transition-all duration-2000" :class="isHandShow ? 'translate-y-[0%]' : 'translate-y-[70%]' ">
                     <img :src="images['10-handshadow-01.png']"> 
                 </div>
-                <div class="absolute top-[4.5%] left-0 z-[4] transition-all duration-2000" :class="isHandShow ? 'translate-y-[0%]' : 'translate-y-[70%]' ">
+                <div @transitionend="$emit('pauseeffect')" class="absolute top-[4.5%] left-0 z-[4] transition-all duration-2000" :class="isHandShow ? 'translate-y-[0%]' : 'translate-y-[70%]' ">
                     <img :src="images['10-hand-01.png']"> 
                 </div>
             </div>
@@ -108,6 +108,7 @@ const isHandShow = ref(false)
 onMounted(() => {
     setTimeout(() => {
         isNotiShow.value = true
+        emit('soundeffect','message')
     },200)
 })
 

@@ -5,7 +5,7 @@
             <div>
                 <img :src="images['07-clock-bg.png']">
             </div>
-            <div @animationend="isGoUp = true" ref="short" class="absolute top-[52%] left-[40.5%] w-[14%] rotate-[-5deg]" :style="{ transformOrigin: '70%' }">
+            <div @animationend="isGoUp = true; $emit('pauseeffect')" ref="short" class="absolute top-[52%] left-[40.5%] w-[14%] rotate-[-5deg]" :style="{ transformOrigin: '70%' }">
                 <img :src="images['07-clock01.png']">
             </div>
             <div ref="long" class="absolute top-[30%] left-[49.3%] w-[1%] rotate-[-21deg]" :style="{ transformOrigin: '85% 85%' }">
@@ -138,6 +138,7 @@ let gateInterval
 let gatecount = 1;
 
 const isGateOpen = ref(false)
+let emit = defineEmits()
 
 function animateGate() {
     console.log('open gate')
@@ -205,6 +206,7 @@ function onDrag(e) {
 
     if (pos.value.left >= 69 && pos.value.left <= 77 && pos.value.top >= 33 && pos.value.top <= 40) {
         if (!gateInterval) {
+            emit('soundeffect','gate')
             animateGate()
         }
     }

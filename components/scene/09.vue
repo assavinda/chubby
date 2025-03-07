@@ -105,6 +105,12 @@ const isQuestionShow = ref(false)
 const answer = ref(null)
 const isGoingToNext =  ref(false)
 
+watch(isGoingToNext, (newVal) => {
+    if (newVal) {
+        emit('themesong','main')
+    }
+});
+
 //video management
 const videoRef = ref(null)
 

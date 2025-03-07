@@ -6,7 +6,7 @@
         </div>
 
         <!-- wardrobe for click to open -->
-        <div @click="isOpen = true" class="absolute top-0 left-0 cursor-pointer">
+        <div @click="isOpen = true; $emit('soundeffect','cabinet')" class="absolute top-0 left-0 cursor-pointer">
             <img :src="images['03-wardrobe-close.png']">
         </div>
 
@@ -42,10 +42,18 @@
         <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none"></div>
 
         <!-- button -->
-        <GeneralButtonRight @click="isButtonClicked = true" class="absolute bottom-[2%] right-[2%] w-[8%]" :class="isOpen == true ? '' : 'hidden' "/>
+        <GeneralButtonRight @click="isButtonClicked = true; $emit('soundeffect','alarm')" class="absolute bottom-[2%] right-[2%] w-[8%]" :class="isOpen == true ? '' : 'hidden' "/>
 
         <!-- fg fade out -->
         <div @animationend="$emit('nextpage')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isButtonClicked ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
+
+        <div class="absolute top-0 left-0">
+            <audio ref="audioRef">
+            <source src="/sounds/effects/cabinet.mp3" type="audio/mpeg">
+            </audio>
+            <button @click="playAudio">Play</button>
+            <button @click="pauseAudio">Pause</button>
+        </div>
     </GeneralContainer>
 </template>
 

@@ -33,7 +33,7 @@
         </div>
 
         <!-- fg fade out -->
-        <div @animationend="$emit('start')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGameStart ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
+        <div @animationend="$emit('start'); $emit('themesong','heavy')" class="absolute top-0 left-0 w-full h-full bg-wall" :class="isGameStart ? 'fade-in' : 'opacity-0 pointer-events-none' " ></div>
 
         <!-- fg fade in -->
         <div class="absolute top-0 left-0 w-full h-full bg-wall fade-out pointer-events-none"></div>
