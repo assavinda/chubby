@@ -4,3 +4,8 @@
     --color-blue: #3e76bb;
     --color-wall: #fdfce6;
 }
+
+@font-face {
+    font-family: 'Kanit';
+    src: url(@/public/fonts/Kanit-Medium.ttf) format('truetype');
+}

@@ -33,6 +33,8 @@
 
     <Scene15 v-if="currentScene === '15'" @nextpage="setScene('16')" @togglescroll="toggleScrollIcon"></Scene15>
 
+    <Scene16 v-if="currentScene === '16'" @nextpage="setScene('17')"></Scene16>
+
     <div class="absolute pointer-events-none z-[100] transition-opacity duration-300" :class="isShowScrollIcon ? 'opacity-100' : 'opacity-0' ">
       <section class="relative w-fit h-fit overflow-hidden">
         <!-- bg holder -->
@@ -123,10 +125,6 @@ useHead({
       rel: "icon",
       type: "image/png",
       href: "./images/icon/logo.png",
-    },
-    {
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap",
     },
   ],
   title: "Chubby",

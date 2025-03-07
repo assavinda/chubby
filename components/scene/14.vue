@@ -42,27 +42,33 @@
             </GeneralButtonRight>
         </div>
 
-        <!-- Body -->
-        <div class="absolute top-0 left-0">
-            <img :src="images[`14-body-${currentSkin}.png`]">
-        </div>
+        <div id="imagewrapper" class="absolute top-0 left-0 overflow-hidden w-[40%] h-full">
+        <div id="dressingbox" class="absolute top-0 left-0 w-[250%] h-full">
+            <!-- Body -->
+            <div class="absolute top-0 left-0">
+                <img :src="images[`14-body-${currentSkin}.png`]">
+            </div>
 
-        <!-- Items -->
-        <div class="absolute top-0 left-0 w-full h-full">
-            <div ref="wearingItemsBox" class="relative w-full h-full">
-                <div v-if="Object.keys(selectedItems['hair']).includes('07')" class="absolute top-0 left-0 w-full h-full z-[90]">
-                    <img :src="images[`14-hair-07-p.png`]">
-                </div>
-                <div v-else-if="Object.keys(selectedItems['hair']).includes('06')" class="absolute top-0 left-0 w-full h-full z-[90]">
-                    <img :src="images[`14-hair-06-p.png`]">
-                </div>
-                <div v-for="(items, category) in selectedItems" :key="category" class="absolute top-0 left-0 w-full h-full">
-                    <div v-for="(zindex,item) in items" :key="item" class="absolute top-0 left-0" :style="{ zIndex: zindex}">
-                        <img :src="images[`14-${category}-${item}.png`]">
+            <!-- Items -->
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div ref="wearingItemsBox" class="relative w-full h-full">
+                    <div v-if="Object.keys(selectedItems['hair']).includes('07')" class="absolute top-0 left-0 w-full h-full z-[90]">
+                        <img :src="images[`14-hair-07-p.png`]">
+                    </div>
+                    <div v-else-if="Object.keys(selectedItems['hair']).includes('06')" class="absolute top-0 left-0 w-full h-full z-[90]">
+                        <img :src="images[`14-hair-06-p.png`]">
+                    </div>
+                    <div v-for="(items, category) in selectedItems" :key="category" class="absolute top-0 left-0 w-full h-full">
+                        <div v-for="(zindex,item) in items" :key="item" class="absolute top-0 left-0" :style="{ zIndex: zindex}">
+                            <img :src="images[`14-${category}-${item}.png`]">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+        
+        
 
         <!-- curtain -->
         <div ref="curtainBox" @click="animateCurtain" class="absolute top-0 left-0 z-[200] transition-all duration-500 cursor-pointer">
@@ -80,6 +86,8 @@
 </template>
 
 <script setup>
+import { toPng } from "html-to-image";
+
 const images = inject("preloaded");
 const isGoingToNext = ref(false)
 const currentLayerType = ref(1)
@@ -377,6 +385,7 @@ function animateCurtain() {
 
 function nextgame() {
     if (!curtain.value) return
+    saveImage()
     curtain.value.classList.remove('hidden')
     c = 62
     function step() {
@@ -402,6 +411,20 @@ function nextgame() {
 
     step()
 }
+
+//save image
+const saveImage = async () => {
+  const dressingBox = document.getElementById("imagewrapper");
+  if (!dressingBox) return;
+
+  try {
+    const dataUrl = await toPng(dressingBox, { backgroundColor: null });
+    localStorage.setItem("dressingImage", dataUrl);
+    console.log("Image saved to localStorage");
+  } catch (error) {
+    console.error("Error saving image:", error);
+  }
+};
 </script>
 
 <style scoped>

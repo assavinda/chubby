@@ -150,7 +150,7 @@ watch(scrollPercent, (newVal) => {
             setTimeout(() => {
                 animateBully()
             },500)
-        }, 1200)
+        }, 1500)
     }
 })
 

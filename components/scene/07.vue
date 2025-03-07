@@ -94,7 +94,7 @@ function handleWheel(event) {
     //speed for trackpad
     const trackpadMultiplier = 1.1
     //speed for wheel
-    const wheelMultiplier = 8
+    const wheelMultiplier = 12
 
     const scrollMultiplier = isTrackpad ? trackpadMultiplier : wheelMultiplier
     const maxScrollSpeed = (scrollMultiplier / 100) * scrollHeight

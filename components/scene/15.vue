@@ -24,7 +24,7 @@
                 </div>
             </div>
             <!-- heart -->
-            <div class="w-full absolute top-[20%] left-[-1%] transition-all duration-900" :class="scrollPercent >= 100 ? 'opacity-100 translate-y-[0%]' : 'opacity-0 translate-y-[50%]' ">
+            <div class="w-full absolute top-[20%] left-[-1%] plaster-bounce transition-all duration-900" :class="scrollPercent >= 100 ? 'opacity-100 translate-y-[0%]' : 'opacity-0 translate-y-[50%]' ">
                 <img :src="images['15-textH06-01.png']">
             </div>
 

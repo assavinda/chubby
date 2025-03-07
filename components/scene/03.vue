@@ -51,8 +51,6 @@
             <audio ref="audioRef">
             <source src="/sounds/effects/cabinet.mp3" type="audio/mpeg">
             </audio>
-            <button @click="playAudio">Play</button>
-            <button @click="pauseAudio">Pause</button>
         </div>
     </GeneralContainer>
 </template>

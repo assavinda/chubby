@@ -201,12 +201,12 @@
             <img :src="images['13-01-02.png']">
         </div>
 
-        <div class="absolute top-0 left-[0%] backdrop-blur-sm cursor-pointer z-[100] transition-opacity duration-300" :class="isPostitShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
-            <div class="cursor-pointer">
-                <div @click="postimg = 'p2'" class="transition-opacity duration-300" :class="postimg == 'p1' ? 'opacity-100' : 'opacity-0 pointer-events-none'">
+        <div class="absolute top-0 left-[0%] backdrop-blur-sm z-[100] transition-opacity duration-300" :class="isPostitShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
+            <div>
+                <div @click="postimg = 'p2'" class="transition-opacity duration-300 cursor-pointer" :class="postimg == 'p1' ? 'opacity-100' : 'opacity-0 pointer-events-none'">
                     <img :src="images['13-yw-01.png']">
                 </div>
-                <div @click="isGoingToNext = true" class="absolute top-0 left-0 transition-opacity duration-300" :class="postimg == 'p2' ? 'opacity-100' : 'opacity-0 pointer-events-none'">
+                <div @click="isGoingToNext = true" class="absolute top-0 left-0 transition-opacity duration-300 cursor-pointer" :class="postimg == 'p2' ? 'opacity-100' : 'opacity-0 pointer-events-none'">
                     <img :src="images['13-yw-02.png']">
                 </div>
             </div>
