@@ -47,13 +47,13 @@
 
     <div class="absolute top-0 left-0">
         <audio ref="themesong" loop>
-          <source :src="`/sounds/${currentThemeSong}.mp3`" type="audio/mpeg">
+          <source :src="`./sounds/${currentThemeSong}.mp3`" type="audio/mpeg">
         </audio>
     </div>
 
     <div class="absolute top-0 left-0">
         <audio ref="soundeffects">
-          <source :src="`/sounds/effects/${currentSoundEffect}.mp3`" type="audio/mpeg">
+          <source :src="`./sounds/effects/${currentSoundEffect}.mp3`" type="audio/mpeg">
         </audio>
     </div>
 
