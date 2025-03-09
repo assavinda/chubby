@@ -105,9 +105,9 @@ const isQuestionShow = ref(false)
 const answer = ref(null)
 const isGoingToNext =  ref(false)
 
-watch(isGoingToNext, (newVal) => {
+watch(isQuestionShow, (newVal) => {
     if (newVal) {
-        emit('themesong','main')
+        emit('pausethemesong')
     }
 });
 

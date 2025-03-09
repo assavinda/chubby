@@ -19,9 +19,9 @@
 
     <Scene08 v-if="currentScene === '08'" @nextpage="setScene('09')" @togglescroll="toggleScrollIcon"></Scene08>
 
-    <Scene09 v-if="currentScene === '09'" @nextpage="setScene('10')" @themesong="playThemeSong" @togglescroll="toggleScrollIcon"></Scene09>
+    <Scene09 v-if="currentScene === '09'" @nextpage="setScene('10')" @pausethemesong="pauseThemeSong" @togglescroll="toggleScrollIcon"></Scene09>
 
-    <Scene10 v-if="currentScene === '10'" @nextpage="setScene('12')" @soundeffect="playSoundEffect" @pauseeffect="pauseSoundEffect" @togglescroll="toggleScrollIcon"></Scene10>
+    <Scene10 v-if="currentScene === '10'" @nextpage="setScene('12')" @themesong="playThemeSong" @soundeffect="playSoundEffect" @pauseeffect="pauseSoundEffect" @togglescroll="toggleScrollIcon"></Scene10>
 
     <Scene11 v-if="currentScene === '11'" @nextpage="setScene('12')"></Scene11>
 

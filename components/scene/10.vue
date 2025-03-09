@@ -20,7 +20,7 @@
         <div class="absolute top-[-0.6%] left-[40.04%] w-[22.07%] h-full z-[3] phonemask">
             <div class="relative w-full h-full flex justify-center">
                 <div @transitionend="isHandShow = true; isSoundWave = true" class="w-[90%] transition-all duration-900" :class="isNotiShow ? 'opacity-100 translate-y-[20%]' : 'opacity-0 translate-y-[0%]' ">
-                    <div @click="socialMediaOn = true; $emit('togglescroll')" :class="isClickable ? 'noti cursor-pointer' : 'noti pointer-events-none'">
+                    <div @click="socialMediaOn = true; $emit('togglescroll'),$emit('themesong','main')" :class="isClickable ? 'noti cursor-pointer' : 'noti pointer-events-none'">
                         <img :src="images['10-poptext_7.png']"> 
                     </div>
                 </div>
