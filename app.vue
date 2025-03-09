@@ -33,7 +33,9 @@
 
     <Scene15 v-if="currentScene === '15'" @nextpage="setScene('16')" @togglescroll="toggleScrollIcon"></Scene15>
 
-    <Scene16 v-if="currentScene === '16'" @nextpage="setScene('17')"></Scene16>
+    <Scene16 v-if="currentScene === '16'" @nextpage="setScene('17')" @togglescroll="toggleScrollIcon"></Scene16>
+
+    <Scene17 v-if="currentScene === '17'"></Scene17>
 
     <div class="absolute pointer-events-none z-[100] transition-opacity duration-300" :class="isShowScrollIcon ? 'opacity-100' : 'opacity-0' ">
       <section class="relative w-fit h-fit overflow-hidden">
@@ -133,7 +135,7 @@ useHead({
 //--SCENES MANAGEMENT--
 
 //current scene (state)
-const currentScene = ref('00');
+const currentScene = ref('16');
 
 //set scene function
 function setScene(sceneName) {

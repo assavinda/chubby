@@ -37,7 +37,7 @@
         </section>
 
         <!-- game section -->
-        <section class="absolute top-0 left-0 w-full h-full" :class="isStart ? 'fade-in' : 'pointer-events-none opacity-0' ">
+        <section class="absolute top-0 left-0 w-full h-full" :class="isStart && !isVideoEnd ? 'fade-in' : 'pointer-events-none opacity-0' ">
             <div class="w-full h-full absolute top-0 left-0">
                 <img :src="images['15-heart06-01.png']">
             </div>
@@ -51,7 +51,7 @@
                     <img :src="images['15-howto-btn.png']">
                 </GeneralButton>
             </div>
-            <div @click="isSuccess = true" class="w-[20%] h-[20%] absolute top-[38%] left-[41%] cursor-pointer" :class="isClickable ? '' : 'hidden' "></div>
+            <div @click="isSuccess = true;" class="w-[20%] h-[20%] absolute top-[38%] left-[41%] cursor-pointer" :class="isClickable ? '' : 'hidden' "></div>
 
             <div class="w-full h-full absolute top-0 left-0 backdrop-blur-xs transition-opacity duration-700" :class="isBackDropShow ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
                 <div class="w-full h-full absolute top-0 left-0 bg-black opacity-25 duration-700"></div>
@@ -70,11 +70,16 @@
         </section>
 
         <!-- credits -->
-        <section class="absolute top-[-0.5%] left-[0%] w-[100.5%] pointer-events-none transition-opacity duration-700" :class="isVideoShow ? 'opacity-100' : 'opacity-0'">
-            <video ref="videoRef" @loadeddata="isVideoReady = true" class="w-full">
+        <section @animationend="$emit('nextpage')" class="absolute top-[-0.5%] left-[0%] w-[100.5%] transition-opacity duration-700" :class="[isVideoShow ? 'opacity-100' : 'opacity-0 pointer-events-none',isGoingToNext ? 'fade-scr-out' : '' ]">
+            <video ref="videoRef" @ended="isVideoEnd = true; emit('togglescroll')" @loadeddata="isVideoReady = true" class="w-full">
             <source src="/videos/endtouchheart.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
+        </section>
+
+        <section @scroll="isGoingToNext = true" class="absolute top-[-0.5%] left-0 w-[100.5%] h-full overflow-y-scroll scroll-smooth transition-opacity duration-700" :class="isVideoEnd ? 'opacity-100' : 'opacity-0 pointer-events-none' ">
+            <div class="w-full h-full"></div>
+            <div class="w-full h-[10%]"></div>
         </section>
     </GeneralContainer>
 </template>
@@ -82,11 +87,14 @@
 <script setup>
 
 const images = inject("preloaded");
+
 const isStart = ref(false)
 const isSuggestShow = ref(true)
 const isBackDropShow = ref(true)
 const isClickable = ref(false)
 const isFadeToGame = ref(false)
+const isVideoEnd = ref(false)
+const isGoingToNext = ref(false)
 
 let emit = defineEmits()
 

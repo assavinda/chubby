@@ -9,3 +9,8 @@
     font-family: 'Kanit';
     src: url(@/public/fonts/Kanit-Medium.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: 'merry';
+    src: url(@/public/fonts/merry.ttf) format('truetype');
+}
