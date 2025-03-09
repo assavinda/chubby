@@ -13,6 +13,12 @@
             <img :src="images['00-cover02.png']">
         </div>
 
+        <div class="absolute top-[3%] left-0">
+            <img :src="images[`others-${Soundstate}.png`]">
+        </div>
+
+        <div @click="toggleSound" class="w-[5%] h-[15%] absolute top-0 right-[8%]"></div>
+
         <!-- start btn -->
         <GeneralButton @click="isSuggestShow = true" class="w-[10%] absolute top-[87%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <img :src="images['00-btn-start.png']">
@@ -44,6 +50,20 @@
 const images = inject("preloaded");
 const isSuggestShow = ref(false)
 const isGameStart =  ref(false)
+const Soundstate = ref('soundoff')
+
+let emit = defineEmits()
+
+function toggleSound() {
+    if (Soundstate.value == 'soundoff') {
+        emit('themesong','main')
+        Soundstate.value = 'soundon'
+    }
+    else {
+        emit('pausethemesong')
+        Soundstate.value = 'soundoff'
+    }
+}
 
 </script>
 

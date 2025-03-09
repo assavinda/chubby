@@ -1,7 +1,7 @@
 <template>
   <section class="flex h-screen w-screen bg-black place-items-center justify-center">
 
-    <Scene00 v-if="currentScene === '00'" @start="setScene('01')" @themesong="playThemeSong"></Scene00>
+    <Scene00 v-if="currentScene === '00'" @start="setScene('01')" @themesong="playThemeSong" @pausethemesong="pauseThemeSong"></Scene00>
 
     <Scene01 v-if="currentScene === '01'" @nextpage="setScene('02')" @togglescroll="toggleScrollIcon"></Scene01>
 
@@ -75,14 +75,6 @@ const themesong = ref(null);
 const currentThemeSong = ref('main')
 const soundeffects = ref(null)
 const currentSoundEffect = ref('')
-
-onMounted(() => {
-  document.addEventListener('click', () => {
-    if (themesong.value && themesong.value.paused) {
-      playThemeSong('main');
-    }
-  });
-});
 
 function playThemeSong(sound) {
   currentThemeSong.value = sound;
