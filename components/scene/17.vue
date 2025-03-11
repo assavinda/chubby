@@ -52,12 +52,6 @@
             </div>
         </section>
 
-        <section class="absolute bottom-[1.6%] right-[0.8%] w-[6.5%]">
-            <GeneralButton>
-                <img :src="images['17-arrow-01.png']">
-            </GeneralButton>
-        </section>
-
         <!-- fg fade in -->
         <div class="absolute top-0 left-0 w-full h-full bg-wall z-[202] fade-out pointer-events-none"></div>
 
