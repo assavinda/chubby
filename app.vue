@@ -74,7 +74,7 @@ const { images } = useImagePreloader();
 provide("preloaded", images);
 
 //scenes management
-const currentScene = ref('08');
+const currentScene = ref('00');
 
 function setScene(sceneName) {
   currentScene.value = sceneName;
