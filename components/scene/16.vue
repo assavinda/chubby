@@ -2,11 +2,15 @@
     <GeneralContainer>
         <!-- scrollable container -->
         <section ref="scrollContainer" @wheel="handleWheel" @scroll="handleScroll" class="absolute top-0 left-0 w-full h-full" :class="isScrollEnd || isScrollLock ? 'pointer-events-none' : 'overflow-y-scroll scroll-smooth' ">
-            <div v-for="i in 12" class="w-full h-full text-center"></div>
+            <div v-for="i in 12" class="w-full h-full text-center">1</div>
+        </section>
+
+        <section ref="scrollContainer2" @wheel="handleWheel" @scroll="handleScroll" class="absolute top-0 left-0 w-full h-full" :class="isScrollEnd || isScrollLock ? 'pointer-events-none' : 'overflow-y-scroll scroll-smooth' ">
+            <div v-for="i in 12" class="w-full h-full text-center">1</div>
         </section>
 
         <!-- texts section -->
-        <section class="absolute w-full h-full top-0 left-0 pointer-events-none" :class="scrollPercent >= 91 ? 'fade-scr-out' : ''">
+        <section class="absolute w-full h-full top-0 left-0 pointer-events-none" :class="scrollPercent >= 91 ? 'hidden' : ''">
             <div class="relative w-full h-full">
                 <p class="absolute top-[13.2%] left-[31.43%] text-blue font-medium responsive-text appearing-text" :class="scrollPercent >= 1 ? 'opacity-100' : 'opacity-0'">
                     สุดท้ายแล้ว
@@ -57,6 +61,7 @@ const isGoingToNext = ref(false)
 //scrolling management ---------------------------------------------------------------------------
 const scrollContainer = ref(null)
 const scrollPercent = ref(0)
+const scrollPercent2 = ref(0)
 const isScrollEnd = ref(false)
 const isScrollLock = ref(false)
 
@@ -67,7 +72,12 @@ function handleScroll() {
 
     const scrollTop = scrollContainer.value.scrollTop
     const scrollHeight = scrollContainer.value.scrollHeight - scrollContainer.value.clientHeight
-    scrollPercent.value = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0
+    if (scrollPercent.value < 100) {
+        scrollPercent.value = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0
+    }
+    else {
+        scrollPercent2.value = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0
+    }
 
 }
 

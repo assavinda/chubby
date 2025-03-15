@@ -6,35 +6,35 @@
         </div>
 
         <!-- open eyes -->
-        <div @animationend="$emit('togglescroll')" class="w-[120%] h-[60%] absolute left-[-10%] bg-black eye-top"></div>
+        <div @animationend="$emit('togglescroll'); isScrollLock = false" class="w-[120%] h-[60%] absolute left-[-10%] bg-black eye-top"></div>
 
         <div class="w-[120%] h-[60%] absolute left-[-10%] bg-black eye-bottom"></div>
 
         <!-- scrollable container -->
-        <section ref="scrollContainer" @wheel="handleWheel" @scroll="handleScroll" class="absolute top-0 left-0 w-full h-full mask" :class="isScrollEnd ? '' : 'overflow-y-scroll scroll-smooth' ">
+        <section ref="scrollContainer" @wheel="handleWheel" @scroll="handleScroll" class="absolute top-0 left-0 w-full h-full mask" :class="isScrollEnd || isScrollLock ? '' : 'overflow-y-scroll scroll-smooth' ">
             <div class="w-full h-full"></div>
             <!-- texts section -->
             <div class="w-full h-[120%]">
                 <div class="relative w-full h-full">
-                    <div class="absolute top-0 left-0 w-[35%] text-bubble">
+                    <div class="absolute top-0 left-0 w-[35%] text-bubble dialogue" :class="scrollPercent >= 24 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['02-textroom01.png']">
                     </div>
-                    <div class="absolute top-[7%] right-[4%] w-[35%] text-bubble">
+                    <div class="absolute top-[7%] right-[4%] w-[35%] text-bubble dialogue" :class="scrollPercent >= 30 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['02-textroom02.png']">
                     </div>
-                    <div class="absolute top-[22%] left-[4%] w-[35%] text-bubble-r">
+                    <div class="absolute top-[22%] left-[4%] w-[35%] text-bubble-r dialogue" :class="scrollPercent >= 36 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['02-textroom03.png']">
                     </div>
-                    <div class="absolute top-[29%] right-[8%] w-[35%] text-bubble">
+                    <div class="absolute top-[29%] right-[8%] w-[35%] text-bubble dialogue" :class="scrollPercent >= 42 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['02-textroom04.png']">
                     </div>
-                    <div class="absolute top-[43%] right-[14%] w-[35%] text-bubble-r">
+                    <div class="absolute top-[43%] right-[14%] w-[35%] text-bubble-r dialogue" :class="scrollPercent >= 48 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['02-textroom05.png']">
                     </div>
-                    <div class="absolute top-[50%] left-[4%] w-[35%] text-bubble">
+                    <div class="absolute top-[50%] left-[4%] w-[35%] text-bubble dialogue" :class="scrollPercent >= 54 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['02-textroom07.png']">
                     </div>
-                    <div class="absolute top-[58%] right-[1%] w-[50%] text-bubble-r">
+                    <div class="absolute top-[58%] right-[1%] w-[50%] text-bubble-r dialogue" :class="scrollPercent >= 60 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['02-textroom06.png']">
                     </div>
                 </div>
@@ -59,6 +59,7 @@ const isWadrobeClicked = ref(false)
 const scrollContainer = ref(null)
 const scrollPercent = ref(0)
 const isScrollEnd = ref(false)
+const isScrollLock = ref(true)
 
 let lastScrollTime = 0
 
@@ -161,5 +162,9 @@ watch(scrollPercent, (newVal) => {
 
 .eye-bottom {
     animation: openeyebottom 3s ease-out forwards;
+}
+
+.dialogue {
+    @apply transition-all duration-500
 }
 </style>

@@ -24,41 +24,41 @@
         <section class="absolute top-0 left-0 w-full h-full z-[19]">
             <div class="relative w-full h-full" :class="currentPeopleSet == 1 ? '' : 'hidden' ">
                 <!-- set 01 -->
-                <div class="absolute top-[0%] left-0 w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[-5%] left-[25%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice01.png']">
                 </div>
-                <div class="absolute top-[17%] left-[5%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
-                    <img :src="images['08-text-textoffice02.png']">
-                </div>
-                <div class="absolute top-[3%] left-[40%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[18%] right-[35%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice03.png']">
+                </div>
+                <div class="absolute top-[8%] left-[2%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                    <img :src="images['08-text-textoffice02.png']">
                 </div>
             </div>
             <!-- set 02 -->
             <div class="relative w-full h-full" :class="currentPeopleSet == 2 ? '' : 'hidden' ">
-                <div class="absolute top-[7%] left-[2%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[2%] left-[2%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice04.png']">
                 </div>
-                <div class="absolute top-[0%] left-[40%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[2%] left-[30%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice05.png']">
                 </div>
-                <div class="absolute top-[17%] left-[9%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[14%] left-[11%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice06.png']">
                 </div>
-                <div class="absolute top-[14%] left-[35%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[17%] left-[37%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice07.png']">
                 </div>
             </div>
 
             <!-- set 03 -->
             <div class="relative w-full h-full" :class="currentPeopleSet == 3 ? '' : 'hidden' ">
-                <div class="absolute top-[7%] left-[2%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow && scrollPercent >= 65 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[7%] left-[-3%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow && scrollPercent >= 65 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice08.png']">
                 </div>
-                <div class="absolute top-[0%] left-[40%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow && scrollPercent >= 80 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
-                    <img :src="images['08-text-textoffice09.png']">
+                <div class="absolute top-[0%] left-[25%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow && scrollPercent >= 80 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                    <img :src="images['08-text-textoffice07.png']">
                 </div>
-                <div class="absolute top-[17%] left-[28%] w-[47%] text-bubble-r transition-all duration-300" :class="isTextShow && scrollPercent >= 95 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[17%] left-[23%] w-[47%] text-bubble-r transition-all duration-300" :class="isTextShow && scrollPercent >= 95 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice10.png']">
                 </div>
             </div>
@@ -150,7 +150,7 @@ watch(scrollPercent, (newVal) => {
             setTimeout(() => {
                 animateBully()
             },500)
-        }, 1500)
+        }, 2500)
     }
 })
 

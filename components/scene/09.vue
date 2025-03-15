@@ -20,33 +20,45 @@
                     <div class="absolute top-0 left-[10%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 1 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด02_other.png']">
                     </div>
-                    <div class="absolute top-[18%] left-[5%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 8 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[18%] left-[5%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 5 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด01_other.png']">
                     </div>
-                    <div class="absolute top-[13%] right-[38%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 12 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[13%] right-[38%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 10 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด01_other.png']">
                     </div>
-                    <div class="absolute top-[5%] right-[14%] w-[35%] text-bubble-r bullyspeech" :class="scrollPercent >= 16 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[5%] right-[14%] w-[35%] text-bubble-r bullyspeech" :class="scrollPercent >= 15 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด03_other.png']">
                     </div>
-                    <div class="absolute top-[26%] right-[15%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 24 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[26%] right-[15%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 20 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด04_other.png']">
                     </div>
-                    <div class="absolute top-[38%] left-[12%] w-[35%] text-bubble-r bullyspeech" :class="scrollPercent >= 32 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[38%] left-[12%] w-[35%] text-bubble-r bullyspeech" :class="scrollPercent >= 25 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด05_other.png']">
                     </div>
-                    <div class="absolute top-[48%] right-[10%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 40 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[48%] right-[10%] w-[35%] text-bubble bullyspeech" :class="scrollPercent >= 30 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด06_other.png']">
                     </div>
-                    <div class="absolute top-[65%] left-[1%] w-[47%] text-bubble-r bullyspeech" :class="scrollPercent >= 48 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[65%] left-[1%] w-[47%] text-bubble-r bullyspeech" :class="scrollPercent >= 35 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด07_other.png']">
                     </div>
-                    <div class="absolute top-[76%] right-[8%] w-[47%] text-bubble-r bullyspeech" :class="scrollPercent >= 56 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[76%] right-[8%] w-[47%] text-bubble-r bullyspeech" :class="scrollPercent >= 40 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['09-textเก็บกด08_other.png']">
+                    </div>
+                    <div class="absolute top-[85%] left-[7%] w-[39%] text-bubble bullyspeech" :class="scrollPercent >= 45 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                        <img :src="images['09-textเก็บกด01_other.png']">
+                    </div>
+                    <div class="absolute top-[95%] right-[17%] w-[39%] text-bubble-r bullyspeech" :class="scrollPercent >= 50 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                        <img :src="images['09-textเก็บกด01_other.png']">
+                    </div>
+                    <div class="absolute top-[110%] left-[18%] w-[39%] text-bubble bullyspeech" :class="scrollPercent >= 55 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                        <img :src="images['09-textเก็บกด01_other.png']">
+                    </div>
+                    <div class="absolute top-[120%] right-[12%] w-[39%] text-bubble-r bullyspeech" :class="scrollPercent >= 60 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                        <img :src="images['09-textเก็บกด01_other.png']">
                     </div>
                 </div>
             </div> 
-            <div class="w-full h-[110%]"></div>
+            <div class="w-full h-[175%]"></div>
         </section>
 
         <div @click="isQuestionShow = true; console.log(isQuestionShow)" class="absolute bottom-[2%] right-[2%] w-[8%] z-[99]" :class="isScrollEnd ? '' : 'hidden' ">
@@ -57,7 +69,7 @@
             <div>
                 <img :src="images['09-yorn-02.png']">
             </div>
-            <div @click="answer = 'yes'" class="absolute bottom-[20.9%] left-[33.85%] w-[12%]">
+            <div @click="answer = 'yes'" class="absolute bottom-[20.9%] left-[33.85%] w-[12.15%]">
                 <GeneralButton>
                     <img :src="images['09-yes-btn.png']">
                 </GeneralButton>

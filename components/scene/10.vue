@@ -6,7 +6,7 @@
                 <div class="absolute top-[0%] left-0 z-[1] transition-all duration-2000" :class="isHandShow ? 'translate-y-[0%]' : 'translate-y-[70%]' ">
                     <img :src="images['10-handshadow-01.png']"> 
                 </div>
-                <div @transitionend="$emit('pauseeffect')" class="absolute top-[4.5%] left-0 z-[4] transition-all duration-2000" :class="isHandShow ? 'translate-y-[0%]' : 'translate-y-[70%]' ">
+                <div class="absolute top-[4.5%] left-0 z-[5] transition-all duration-2000" :class="isHandShow ? 'translate-y-[0%]' : 'translate-y-[70%]' ">
                     <img :src="images['10-hand-01.png']"> 
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="absolute top-[-0.6%] left-[40.04%] w-[22.07%] h-full z-[3] phonemask">
             <div class="relative w-full h-full flex justify-center">
                 <div @transitionend="isHandShow = true; isSoundWave = true" class="w-[90%] transition-all duration-900" :class="isNotiShow ? 'opacity-100 translate-y-[20%]' : 'opacity-0 translate-y-[0%]' ">
-                    <div @click="socialMediaOn = true; $emit('togglescroll');$emit('themesong','main')" :class="isClickable ? 'noti cursor-pointer' : 'noti pointer-events-none'">
+                    <div @click="socialMediaOn = true; $emit('togglescroll');$emit('themesong','main'); stopSound()" :class="isClickable ? 'noti cursor-pointer' : 'noti pointer-events-none'">
                         <img :src="images['10-poptext_7.png']"> 
                     </div>
                 </div>
@@ -28,7 +28,7 @@
         </div>
 
         <!-- social bg -->
-        <div class="absolute top-[-0.6%] left-[40.04%] w-[22.07%] h-full z-[3] pointer-events-none phonemask">
+        <div class="absolute top-[-1.8%] left-[39.83%] w-[22.4%] h-full z-[3] pointer-events-none phonemask">
             <div class="relative w-full h-full flex justify-center transition-all duration-500" :class="socialMediaOn ? 'opacity-100 scale-[1]' : 'opacity-0 scale-[0]' ">
                 <div class="absolute top-[14.8%] left-0">
                     <img :src="images['10-BG3-01.png']"> 
@@ -47,6 +47,10 @@
                     <div class="w-full h-[17%]"></div>
                 </div>
             </div>
+        </div>
+
+        <div class="absolute top-0 left-0 z-[4] pointer-events-none">
+            <img :src="images['10-BG2.png']">
         </div>
 
         <!-- scrollable container -->
@@ -113,7 +117,7 @@ onMounted(() => {
 })
 
 const socialMediaOn = ref(false)
-const isClickable = ref(false)
+const isClickable = ref(true)
 
 //scrolling management ---------------------------------------------------------------------------
 const scrollContainer = ref(null)
@@ -188,7 +192,7 @@ function animateSound() {
     soundInterval = setInterval(() => {
         soundCurrentFrame.value = `10-soundwave-ทรศ_000${soundcount}.png`;
         if (soundcount >= 77) {
-            stopSound()
+            soundcount = 0
         } else {
             soundcount++;
         }
@@ -197,8 +201,8 @@ function animateSound() {
 
 function stopSound() {
     clearInterval(soundInterval)
-    isClickable.value = true
     soundCurrentFrame.value = '10-soundwave-ทรศ_0000.png';
+    emit('pauseeffect')
 }
 
 </script>
@@ -215,8 +219,8 @@ function stopSound() {
 }
 
 .phonemask {
-    -webkit-mask-image: url(/images/10/phone-mask.png);
-    mask-image: url(/images/10/phone-mask.png);
+    -webkit-mask-image: url(/images/10/BG3-01.png);
+    mask-image: url(/images/10/BG3-01.png);
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;

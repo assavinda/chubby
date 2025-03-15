@@ -9,7 +9,7 @@
                     <!-- alarm -->
                     <div class="absolute top-[-20%] left-0 w-full pointer-events-none">
                         <div class="relative w-full flex justify-center">
-                            <div @animationstart="playAudio" @animationend="isScrollLock = false" class="w-[50%] alarm-rotate">
+                            <div @animationend="isScrollLock = false" class="w-[50%] alarm-rotate">
                                 <img :src="images['04-alarm.png']">
                             </div>          
                         </div>
