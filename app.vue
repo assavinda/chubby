@@ -88,7 +88,7 @@ function toggleScrollIcon() {
 }
 
 //sounds management
-const SoundState = ref('on')
+const SoundState = ref('off')
 
 function toggleSound() {
   SoundState.value == 'off' ? SoundState.value = 'on' : SoundState.value = 'off'
