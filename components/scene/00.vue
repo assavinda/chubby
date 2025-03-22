@@ -1,19 +1,14 @@
 <template>
     <GeneralContainer>
         <!-- bg images -->
-        <div class="absolute top-0 left-0">
-            <img :src="images['00-cover01.png']">
-        </div>
+        <section class="absolute top-0 left-0">
+            <video ref="videoRef" class="w-full" playsinline muted>
+                <source src="/videos/cover.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </section>
 
-        <div class="absolute top-0 left-0">
-            <img :src="images['00-cover00.png']">
-        </div>
-
-        <div class="absolute top-0 left-0">
-            <img :src="images['00-cover02.png']">
-        </div>
-
-        <div @click="$emit('togglesound'); $emit('themesong','main')" class="w-[5%] h-[15%] absolute top-[4%] right-[4%] z-[20] transition-all duration-300 hover:scale-[1.2]">
+        <div @click="$emit('togglesound'); $emit('themesong','main')" class="w-[5%] h-[15%] absolute top-[4%] right-[4%] z-[20] cursor-pointer transition-all duration-300 hover:scale-[1.2]">
             <img :src="images[`others-sound${SoundState}.png`]">
         </div>
 
@@ -46,6 +41,29 @@
 
 <script setup>
 const images = inject("preloaded");
+
+//video management
+const videoRef = ref(null)
+
+onMounted(() => {
+    setTimeout(() => {
+        if (videoRef.value) {
+            const playPromise = videoRef.value.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.error("Video play failed:", error);
+                });
+            }
+        }
+    }, 500);
+
+    videoRef.value?.addEventListener("ended", () => {
+        if (videoRef.value) {
+            videoRef.value.currentTime = 0;
+            videoRef.value.play();
+        }
+    });
+});
 
 //props
 const { SoundState } = defineProps({ SoundState: String });

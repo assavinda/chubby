@@ -140,7 +140,7 @@ onMounted(() => {
 
     videoRef.value?.addEventListener("ended", () => {
         if (videoRef.value) {
-            videoRef.value.currentTime = 13.64;
+            videoRef.value.currentTime = 15.95;
             videoRef.value.play();
         }
     });
