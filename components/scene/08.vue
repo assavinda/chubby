@@ -141,7 +141,9 @@ watch(scrollPercent, (newVal) => {
     }
     else if (newVal == 26 || newVal == 54) {
         isScrollLock.value = true
-        isPeopleGo.value = true
+        setTimeout(() => {
+            isPeopleGo.value = true
+        }, 1500)
     }
     else if (newVal >= 100) {
         isScrollEnd.value = true
