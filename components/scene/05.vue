@@ -20,25 +20,25 @@
                     <div class="absolute top-0 left-[8%] w-[35%] text-bubble mom-dialogue" :class="scrollPercent >= 6 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm01.png']">
                     </div>
-                    <div class="absolute top-[18%] left-[9%] w-[35%] text-bubble mom-dialogue" :class="scrollPercent >= 12 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[18%] left-[0%] w-[35%] text-bubble mom-dialogue" :class="scrollPercent >= 12 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm02.png']">
                     </div>
-                    <div class="absolute top-[6%] right-[17%] w-[35%] text-bubble-r mom-dialogue" :class="scrollPercent >= 18 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[6%] right-[15%] w-[35%] text-bubble-r mom-dialogue" :class="scrollPercent >= 18 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm03.png']">
                     </div>
-                    <div class="absolute top-[23%] right-[16%] w-[35%] text-bubble mom-dialogue" :class="scrollPercent >= 24 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[23%] right-[8%] w-[35%] text-bubble mom-dialogue" :class="scrollPercent >= 24 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm04.png']">
                     </div>
                     <div class="absolute top-[37%] right-[12%] w-[35%] text-bubble-r mom-dialogue" :class="scrollPercent >= 30 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm05.png']">
                     </div>
-                    <div class="absolute top-[34%] left-[4%] w-[49%] text-bubble mom-dialogue" :class="scrollPercent >= 36 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[34%] left-[-2%] w-[45%] text-bubble mom-dialogue" :class="scrollPercent >= 36 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm06.png']">
                     </div>
-                    <div class="absolute top-[60%] left-[8%] w-[36%] text-bubble-r mom-dialogue" :class="scrollPercent >= 48 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[60%] left-[8%] w-[35%] text-bubble-r mom-dialogue" :class="scrollPercent >= 48 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm07.png']">
                     </div>
-                    <div class="absolute top-[53%] right-[4%] w-[49%] text-bubble-r mom-dialogue" :class="scrollPercent >= 56 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[53%] right-[2%] w-[45%] text-bubble-r mom-dialogue" :class="scrollPercent >= 56 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['05-textm08.png']">
                     </div>
                 </div>

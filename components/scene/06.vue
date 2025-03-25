@@ -29,7 +29,7 @@
                     <div class="absolute top-[8%] right-[14%] w-[35%] text-bubble-r grand-dialogue" :class="scrollPercent >= 18 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['06-textG03.png']">
                     </div>
-                    <div class="absolute top-[22%] right-[3%] w-[47%] text-bubble grand-dialogue" :class="scrollPercent >= 24 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
+                    <div class="absolute top-[22%] right-[-2%] w-[45%] text-bubble grand-dialogue" :class="scrollPercent >= 24 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">
                         <img :src="images['06-textG04.png']">
                     </div>
                     <div class="absolute top-[47%] right-[8%] w-[35%] text-bubble-r grand-dialogue" :class="scrollPercent >= 30 ? 'opacity-100 translate-y-[0]' : 'opacity-0 translate-y-[60%]' ">

@@ -42,17 +42,17 @@
                 <div class="absolute top-[2%] left-[30%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice05.png']">
                 </div>
-                <div class="absolute top-[14%] left-[11%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[14%] left-[9%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice06.png']">
                 </div>
-                <div class="absolute top-[17%] left-[37%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[17%] left-[40%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice07.png']">
                 </div>
             </div>
 
             <!-- set 03 -->
             <div class="relative w-full h-full" :class="currentPeopleSet == 3 ? '' : 'hidden' ">
-                <div class="absolute top-[7%] left-[-3%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow && scrollPercent >= 65 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[0%] left-[2%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow && scrollPercent >= 65 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice08.png']">
                 </div>
                 <div class="absolute top-[0%] left-[25%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow && scrollPercent >= 80 ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
