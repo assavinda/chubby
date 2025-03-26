@@ -208,6 +208,16 @@ watch(scrollPercent, (newVal) => {
 </script>
 
 <style scoped>
+.mask {
+    -webkit-mask-image: url(/images/others/maskdialogue.png);
+    mask-image: url(/images/others/maskdialogue.png);
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
 .bullyspeech {
     @apply transition-all duration-500
 }

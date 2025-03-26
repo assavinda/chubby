@@ -48,9 +48,9 @@
                     </div>
 
                     <div class="absolute top-0 left-0 cursor-arrow">
-                        <img v-if="currentWebIndex === 0" :src="images['13-inBU1-02.png']"> 
-                        <img v-if="currentWebIndex === 1" :src="images['13-inPK2-02.png']"> 
-                        <img v-if="currentWebIndex === 2" :src="images['13-inYW3-02.png']"> 
+                        <img v-if="currentWebIndex === 0" :src="images['13-inBU.png']"> 
+                        <img v-if="currentWebIndex === 1" :src="images['13-inPK.png']"> 
+                        <img v-if="currentWebIndex === 2" :src="images['13-inYW.png']"> 
                     </div>
 
                     <div @click="websiteIsOpen = !websiteIsOpen;" class="absolute w-[5%] top-[5%] right-[5%] cursor-arrow">
