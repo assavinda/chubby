@@ -17,7 +17,7 @@
                             v-model="inputText" 
                             @input="adjustHeight($event)"
                             ref="autoTextarea"
-                            class="w-[90%] min-h-[10%] max-h-[100%] merry text-center text-white responsive-text focus:outline-none focus:ring-0 resize-none break-words overflow-hidden"
+                            class="w-[90%] min-h-[10%] max-h-[42%] merry text-center text-white responsive-text focus:outline-none focus:ring-0 resize-none break-words overflow-hidden"
                         ></textarea>
                     </div>
                 </div>
