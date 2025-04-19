@@ -36,7 +36,7 @@
             </div>
             <!-- set 02 -->
             <div class="relative w-full h-full" :class="currentPeopleSet == 2 ? '' : 'hidden' ">
-                <div class="absolute top-[2%] left-[2%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
+                <div class="absolute top-[-2%] left-[2%] w-[35%] text-bubble transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
                     <img :src="images['08-text-textoffice04.png']">
                 </div>
                 <div class="absolute top-[2%] left-[30%] w-[35%] text-bubble-r transition-all duration-300" :class="isTextShow ? 'opacity-100 translate-y-[0%] scale-[1]' : 'opacity-0 translate-y-[40%] scale-[0.5]' ">
