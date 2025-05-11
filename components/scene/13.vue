@@ -188,13 +188,13 @@
                             <div>
                                 <img :src="images['13-P1-P1_R.png']"> 
                             </div>
-                            <div ref="model03" class="absolute left-[38%] w-[24%] models-up pointer-events-none" :class="currentTarget.includes('03') ? '' : 'mag'" :style="{ bottom: 6 + '%' }">
+                            <div ref="model03" class="absolute left-[38%] w-[24%] models-up pointer-events-none" :class="currentTarget.includes('03') || isFlipped ? '' : 'mag'" :style="{ bottom: 6 + '%' }">
                                 <img :src="images['13-P1-01-P1_R.png']">
                             </div>
-                            <div class="absolute bottom-0 left-[22%] w-[56%] pointer-events-none">
+                            <div class="absolute bottom-0 left-[22%] w-[56%] fixback pointer-events-none">
                                 <img :src="images['13-P1-02-P1_R.png']">
                             </div>
-                            <div id="03" @click="setTarget($event); model03.style.bottom == '6%' ? model03.style.bottom = '40%' : model03.style.bottom = '6%'" class="absolute bottom-[49%] left-[44.25%] w-[10%] h-[43%]   z-[11] cursor-pointer"></div>
+                            <div id="03" @click="setTarget($event); model03.style.bottom == '6%' ? model03.style.bottom = '40%' : model03.style.bottom = '6%'" class="absolute bottom-[49%] left-[44.25%] w-[10%] h-[43%] z-[11] cursor-pointer"></div>
                             <div @click="flipPage" class="absolute right-[4%] bottom-[2.3%] w-[10.8%]">
                                 <GeneralButton>
                                     <img :src="images['13-button-R.png']">

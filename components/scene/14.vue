@@ -86,7 +86,8 @@
 </template>
 
 <script setup>
-import { toPng } from "html-to-image";
+// Replace html-to-image with html2canvas
+import html2canvas from "html2canvas";
 
 const images = inject("preloaded");
 const isGoingToNext = ref(false)
@@ -412,13 +413,23 @@ function nextgame() {
     step()
 }
 
-//save image
+// Modified saveImage function to use html2canvas instead of html-to-image
 const saveImage = async () => {
   const dressingBox = document.getElementById("imagewrapper");
   if (!dressingBox) return;
 
   try {
-    const dataUrl = await toPng(dressingBox, { backgroundColor: null });
+    // Use html2canvas to capture the element
+    const canvas = await html2canvas(dressingBox, {
+      backgroundColor: null,
+      allowTaint: true,
+      useCORS: true
+    });
+    
+    // Convert canvas to data URL
+    const dataUrl = canvas.toDataURL("image/webp");
+    
+    // Save to localStorage
     localStorage.setItem("dressingImage", dataUrl);
     console.log("Image saved to localStorage");
   } catch (error) {
